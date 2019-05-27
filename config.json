@@ -1,0 +1,15 @@
+{
+    "serverSettings": {
+        "ip": "127.0.0.1",
+        "port": {
+            "http": "80",
+            "https": "443"
+        },
+        "httpsEnabled": false,
+        "kernelURL": "/api"
+    },
+    "webSettings": {
+        "siteName": "Habbo",
+        "siteURL": "localhost"
+    }
+}

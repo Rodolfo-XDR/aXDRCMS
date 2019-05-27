@@ -1,0 +1,42 @@
+/* You can add global styles to this file, and also import other style files */
+html {
+    height: 100%;
+}
+
+html, body {
+    font-family: Ubuntu Light;
+    height: 100% !important;
+    margin: 0;
+}
+
+::-webkit-scrollbar {
+    width: 14px;
+    height: 18px;
+}
+
+::-webkit-scrollbar-button {
+    width: 0;
+    height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    height: 6px;
+    border: 4px solid rgba(0, 0, 0, 0);
+    background-clip: padding-box;
+    border-radius: 7px;
+    background-color: rgba(0, 0, 0, 0.15);
+    -webkit-box-shadow: inset -1px -1px 0px rgba(0, 0, 0, 0.05), inset 1px 1px 0px rgba(0, 0, 0, 0.05);
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-corner {
+    background-color: transparent;
+}
+
+p, ul {
+    margin: 0;
+    padding: 0;
+}

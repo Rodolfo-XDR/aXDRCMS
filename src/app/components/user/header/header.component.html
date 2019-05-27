@@ -1,0 +1,33 @@
+<header>
+    <div class="mainNavigator darken">
+        <div class="logo"></div>
+        <ul class="menu">
+            <li *ngFor="let tab of menuTabs">
+                <a [routerLink]="tab._path">{{ tab._title }}</a>
+            </li>
+        </ul>
+    </div>
+    <div class="subNavigator">
+        <ul class="menu">
+            <li @fadeInOut *ngFor="let subTab of subMenuTabs">
+                <a [routerLink]="subTab._path">{{ subTab._title }}</a>
+            </li>
+        </ul>
+    </div>
+</header>
+
+<!--
+
+            <ul class="mainNavigator">
+            <li><a href="#">Main 1</a></li>
+            <li><a href="#">Main 2</a></li>
+            <li><a href="#">Main 3</a></li>
+            <li><a href="#">Main 4</a></li>
+        </ul>
+        <ul class="subNavigator">
+            <li><a href="#">Sub 1</a></li>
+            <li><a href="#">Sub 2</a></li>
+            <li><a href="#">Sub 3</a></li>
+            <li><a href="#">Sub 4</a></li>
+        </ul>
+-->
