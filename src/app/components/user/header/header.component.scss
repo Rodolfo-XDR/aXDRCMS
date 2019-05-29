@@ -59,6 +59,15 @@ header {
             border-right: 1px solid #1d1d1d;
             box-shadow: 1px 0 0 #212121;
         }
+
+        &.darkBlue {
+            background: #001629
+        }
+
+        &.darkBlue > div.logo {
+            border-right: 1px solid #012344;
+            box-shadow: 1px 0 0 #000c17;
+        }
     }
 
     div.subNavigator {

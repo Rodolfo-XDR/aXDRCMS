@@ -12,7 +12,7 @@ export const globalRoutesNames = {
     REGISTER: 
     {
       url: 'quickregister',
-      title: 'Register'
+      title: 'Registro'
     },
     ME: 
     {
@@ -22,11 +22,26 @@ export const globalRoutesNames = {
     SETTINGS: 
     {
       url: 'settings',
-      title: 'Settings',
+      title: 'Ajustes',
+    },
+    GENERAL: 
+    {
+      url: '',
+      title: 'General',
+    },
+    PREFERENCES: 
+    {
+      url: 'preferences',
+      title: 'Preferencias',
+    },
+    CUSTOMIZATION: 
+    {
+      url: 'customization',
+      title: 'Personalización',
     },
     PROFILE: {
       url: 'profile',
-      title: 'Profile'
+      title: 'Mi Perfil'
     },
     COMMUNITY: {
       url: 'community',

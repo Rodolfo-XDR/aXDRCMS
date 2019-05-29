@@ -8,7 +8,6 @@ import { AppComponent } from './app.component';
 
 import { HeaderComponent } from './components/user/header/header.component';
 import { LoginComponent } from './components/guest/login/login.component';
-import { HabboComponent } from './components/user/habbo/habbo.component';
 import { SideComponent } from './components/user/side/side.component';
 import { RegisterComponent } from './components/guest/register/register.component';
 import { MeComponent } from './components/user/habbo/me/me.component';
@@ -22,6 +21,8 @@ import { TopComponent } from './components/user/community/top/top.component';
 import { UserComponent } from './components/user/user.component';
 import { Error404Component } from './components/other/error404/error404.component';
 import { Error403Component } from './components/other/error403/error403.component';
+import { PreferencesComponent } from './components/user/habbo/settings/preferences/preferences.component';
+import { CustomizationComponent } from './components/user/habbo/settings/customization/customization.component';
 
 @NgModule({
   imports: [
@@ -43,8 +44,9 @@ import { Error403Component } from './components/other/error403/error403.componen
     UserComponent,
     Error404Component,
     Error403Component,
-    HabboComponent,
     SideComponent,
+    PreferencesComponent,
+    CustomizationComponent,
   ],
   providers: [AuthenticatedGuard, UnauthenticatedGuard],
   bootstrap: [AppComponent]

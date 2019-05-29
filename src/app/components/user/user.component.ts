@@ -26,7 +26,10 @@ export class UserComponent implements OnInit {
   menuTabs : menuItem[] = [];
   currentSubMenus : menuItem[] = [];
 
-  appSide : string[] = [globalRoutesNames.ME.url, globalRoutesNames.SETTINGS.url];
+  appSide : string[] = [
+    globalRoutesNames.ME.url, 
+    globalRoutesNames.SETTINGS.url
+  ];
 
   constructor(private router : Router, private activatedRoute : ActivatedRoute){
     this.generateMenus();
@@ -48,6 +51,8 @@ export class UserComponent implements OnInit {
       if(e instanceof NavigationEnd) {
 
         this.currentPage = (this.activatedRoute.firstChild.firstChild.routeConfig.path == globalRoutesNames.DEFAULT.url) ? this.activatedRoute.firstChild.routeConfig : this.activatedRoute.firstChild.firstChild.routeConfig;
+
+      console.log(this.currentPage);
 
         if(this.currentRoute == this.activatedRoute.firstChild)
           return;
@@ -73,7 +78,6 @@ export class UserComponent implements OnInit {
             this.currentRoute = this.activatedRoute.firstChild;
           });
         }
-
       }
     });
   }

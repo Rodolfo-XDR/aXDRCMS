@@ -1,0 +1,53 @@
+<div @fadeIn *ngIf="currentPage.path == 'me'" class="section">
+    <div class="title">
+        Mr.Mustache
+        <span id="status" class="online"></span>
+    </div>
+    <div class="content">
+        <div class="user-data">
+            <div class="avatar">
+                <img src="https://habbo.com.tr/habbo-imaging/avatarimage?figure=ch-210-1322.hd-180-1.hr-100-40.sh-300-1408.lg-285-76&size=l&action=wlk,wav&direction=2&head_direction=1&gesture=sml" />
+            </div>
+            <div class="information">
+                <div class="motto">
+                    Angular 7 All the way!
+                </div>
+                <div class="last-login">
+                    <b>Última Conexión:</b> 42 minutes ago
+                </div>
+                <div class="join-date">
+                    <b>Cread@:</b> 1.29.2019
+                </div>
+            </div>
+        </div>
+        
+        <div class="sub-section">
+            <div class="title"> <span class="groups"></span> Placas & Grupos</div>
+            <div class="content">
+                No Badges Available
+            </div>
+        </div>
+
+        <div class="sub-section">
+            <div class="title"> <span class="friends"></span> Mis amig@s</div>
+            <div class="content">
+                <div class="friends"><span class="online"></span><b>5</b> Amig@s Conectados</div>
+                <div class="friends"><span class="offline"></span><b>17</b> Amig@s Desconectados</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div @fadeIn *ngIf="currentPage.path == 'settings'" class="section">
+    <div class="title">
+        Ajustes
+    </div>
+    <div class="content">
+        <ul class="sub-menu">
+            <li *ngFor="let section of currentPage.children">
+                <!--Change this to settings?pageID=2-->
+                <a [routerLink]="'/' + currentPage.path + '/' + section.path">{{ section.data.title }}</a>
+            </li>
+        </ul>
+    </div>
+</div>

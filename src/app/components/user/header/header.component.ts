@@ -5,7 +5,7 @@ import { fadeIn } from 'ng-animate';
 
 @Component({
   selector: 'app-header',
-  templateUrl: './header.component.html',
+  templateUrl: '../../../HTMLs/header.html',
   styleUrls: ['./header.component.scss'],
   animations: [
     trigger('fadeInOut', [

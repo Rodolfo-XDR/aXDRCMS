@@ -7,8 +7,8 @@ import { TopComponent } from '../components/user/community/top/top.component';
 import { CommunityComponent } from '../components/user/community/community.component';
 
 export const COMMUNITY_ROUTES : Routes = [
-    { path: globalRoutesNames.DEFAULT.url, component: CommunityComponent, data: { title: 'Comunidad' } },
-    { path: globalRoutesNames.ARTICLES.url, component: ArticlesComponent, data: { title: 'Noticias' } },
-    { path: globalRoutesNames.PHOTO_GALLERY.url, component: PhotoGalleryComponent, data: { title: 'Galería' } },
-    { path: globalRoutesNames.TOP.url, component: TopComponent, data: { title: 'Tops' } }
+    { path: globalRoutesNames.DEFAULT.url, component: CommunityComponent, data: { title: globalRoutesNames.COMMUNITY.title } },
+    { path: globalRoutesNames.ARTICLES.url, component: ArticlesComponent, data: { title: globalRoutesNames.ARTICLES.title } },
+    { path: globalRoutesNames.PHOTO_GALLERY.url, component: PhotoGalleryComponent, data: { title: globalRoutesNames.PHOTO_GALLERY.title } },
+    { path: globalRoutesNames.TOP.url, component: TopComponent, data: { title: globalRoutesNames.TOP.title } }
 ];

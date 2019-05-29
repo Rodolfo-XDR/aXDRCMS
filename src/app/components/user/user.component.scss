@@ -12,10 +12,23 @@ div.content {
         flex-flow: row;
         overflow: hidden;
     
+
+        &.morning {
+            background: #88caf9;
+            background: -webkit-linear-gradient(to top, #bce9ff, #88caf9);
+            background: linear-gradient(to top, #bce9ff, #88caf9);
+        }
+
         &.late {
             background: #e4614d;
             background: -webkit-linear-gradient(to top, #ffaf84, #e4614d);
             background: linear-gradient(to top, #ffaf84, #e4614d);
+        }
+
+        &.nite {
+            background: #000110;
+            background: -webkit-linear-gradient(to top, #000621, #000110);
+            background: linear-gradient(to top, #000621, #000110)
         }
     
         app-side {
@@ -24,6 +37,12 @@ div.content {
             color: white;
             text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
             flex: 0 1 350px;
+        }
+
+        div.page-content {
+            flex: 1 1 auto;
+            overflow: auto;
+            padding: 20px 15px;
         }
     }
 }

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HabboComponent } from './habbo.component';
+import { PreferencesComponent } from './preferences.component';
 
-describe('HabboComponent', () => {
-  let component: HabboComponent;
-  let fixture: ComponentFixture<HabboComponent>;
+describe('PreferencesComponent', () => {
+  let component: PreferencesComponent;
+  let fixture: ComponentFixture<PreferencesComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HabboComponent ]
+      declarations: [ PreferencesComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HabboComponent);
+    fixture = TestBed.createComponent(PreferencesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
