@@ -6,7 +6,7 @@ import { fadeIn } from 'ng-animate';
 @Component({
   selector: 'app-header',
   templateUrl: '../../../HTMLs/header.html',
-  styleUrls: ['./header.component.scss'],
+  styleUrls: ['./header.component.css'],
   animations: [
     trigger('fadeInOut', [
       transition(':enter', useAnimation(fadeIn, { params: { timing: 1 } } ))

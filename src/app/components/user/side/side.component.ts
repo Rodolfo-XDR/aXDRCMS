@@ -7,7 +7,7 @@ import { globalRoutesNames } from 'src/global.routes.names';
 @Component({
   selector: 'app-side',
   templateUrl: '../../../HTMLs/side.html',
-  styleUrls: ['./side.component.scss'],
+  styleUrls: ['./side.component.css'],
   animations: [
     trigger('fadeIn', [
       transition(':enter', useAnimation(fadeIn, { params: { timing: 1 } } ))

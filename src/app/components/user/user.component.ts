@@ -8,7 +8,7 @@ import { globalRoutesNames } from 'src/global.routes.names';
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
-  styleUrls: ['./user.component.scss'],
+  styleUrls: ['./user.component.css'],
   animations: [
     trigger('fadeIn', [
       transition(':enter', useAnimation(fadeIn, { params: { timing: 1 } } ))
