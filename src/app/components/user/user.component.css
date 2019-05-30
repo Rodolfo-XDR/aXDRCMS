@@ -34,6 +34,9 @@ div.content {
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
     flex: 0 1 350px;
   }
+  div.content div.wrapper app-side.blue {
+    background: #006ac5;
+  }
   div.content div.wrapper div.page-content {
     flex: 1 1 auto;
     overflow: auto;

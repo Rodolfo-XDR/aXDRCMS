@@ -59,6 +59,15 @@ header div.mainNavigator {
     border-right: 1px solid #0a335a;
     box-shadow: 1px 0 0 #002140;
   }
+  header div.mainNavigator.blue {
+    background: #015cab;
+    background: -webkit-linear-gradient(to bottom, #259aff, #015cab);
+    background: linear-gradient(to bottom, #259aff, #015cab)
+  }
+  header div.mainNavigator.blue > div.logo {
+    border-right: 1px solid #1f7ed8;
+    box-shadow: 1px 0 0 #0466c1;
+  }
   header div.subNavigator {
     background: #171717;
   }
