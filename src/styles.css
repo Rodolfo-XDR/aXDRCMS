@@ -1,24 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
-html {
+	html {
 	height: 100%;
-  }
+	}
+	
   html, body {
 	font-family: Ubuntu Light;
 	height: 100% !important;
 	margin: 0;
-	}
-
-	input[type=text], input[type=password], input[type=tel], input[type=datetime-local], input[type=email], input[type=file], input[type=month], input[type=number], input[type=search], input[type=time], input[type=url], input[type=week], input[type=file], select, textarea, .file, .input, .textarea, .select, .tag-input, .spinner	{
-		color: #ffffff;
-		font-family: inherit;
-	}
-
-	.input-material input {
-		border-bottom: 1px rgba(255, 255, 255, 0.2) solid;
-	}
-
-	.input-material input:hover {
-		border-color: rgba(255, 255, 255, 0.4);
 	}
 
 	.arcticSwitch .check::after {
@@ -33,11 +21,34 @@ html {
 			background: #ffffff!important;
 	}
 
+	.arctic {
+		background: rgba(0, 0, 0, 0.3);
+    border: none;
+    border-radius: 3px;
+	}
+
+	.arctic.dropdown-toggle::before {
+		border-color: #ffffff;
+	}
+
+	.arctic.focused {
+		box-shadow: none;
+	}
+
+	.arctic .drop-container {
+		background: transparent;
+		border: none;
+	}
+
+	.arctic .d-menu {
+		background: rgba(0,0,0,0.5);
+		color: #ffffff;
+	}
+
 	.carousel {
 		background-color: transparent;
 		max-width: 753px;
 		max-height: 300px;
-		margin: 0 auto;
 	}
 
 	.carousel .slide {
@@ -263,8 +274,9 @@ html {
 	margin-left: 91.66667%;
 	}
 	.box {
-    border-radius: 5px;
-    padding: 10px;
+    border-radius: 3px;
+		padding: 10px;
+		margin: 0 0 10px;
 	}
 	.box.darkTransparent {
 		background: rgba(16, 16, 16, 0.55);
