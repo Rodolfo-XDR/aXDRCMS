@@ -23,6 +23,8 @@ import { Error404Component } from './components/other/error404/error404.componen
 import { Error403Component } from './components/other/error403/error403.component';
 import { PreferencesComponent } from './components/user/habbo/settings/preferences/preferences.component';
 import { CustomizationComponent } from './components/user/habbo/settings/customization/customization.component';
+import { GuestComponent } from './components/guest/guest.component';
+import { FooterComponent } from './components/other/footer/footer.component';
 
 @NgModule({
   imports: [
@@ -47,6 +49,8 @@ import { CustomizationComponent } from './components/user/habbo/settings/customi
     SideComponent,
     PreferencesComponent,
     CustomizationComponent,
+    GuestComponent,
+    FooterComponent,
   ],
   providers: [AuthenticatedGuard, UnauthenticatedGuard],
   bootstrap: [AppComponent]

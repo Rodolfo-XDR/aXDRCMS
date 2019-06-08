@@ -10,6 +10,6 @@ export class AuthService {
   constructor() { }
 
   get isLoggedIn() {
-    return true;
+    return this.loggedInStatus;
   }
 }

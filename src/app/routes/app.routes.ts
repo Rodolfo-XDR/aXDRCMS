@@ -9,10 +9,12 @@ import { USER_ROUTES } from './user.routes';
 
 import { Error404Component } from '../components/other/error404/error404.component';
 import { UserComponent } from '../components/user/user.component';
+import { GuestComponent } from '../components/guest/guest.component';
 
 export const APP_ROUTES: Routes = [
     {
         path: globalRoutesNames.DEFAULT.url,
+        component: GuestComponent,
         children: GUEST_ROUTES, 
         canActivateChild: [UnauthenticatedGuard]
     },

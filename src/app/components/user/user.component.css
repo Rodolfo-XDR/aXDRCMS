@@ -12,6 +12,10 @@ div.content {
     flex-flow: row;
     overflow: hidden;
   }
+  div.content div.wrapper.radial {
+    background: #070d19;
+    background: radial-gradient(circle at center, #00528c, #070d19);
+  }
   div.content div.wrapper.morning {
     background: #0089ff;
     background: -webkit-linear-gradient(to top, #31bdff, #0089ff);

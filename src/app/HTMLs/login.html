@@ -1,0 +1,57 @@
+<div class="row guest">
+  <div class="col guest">
+    <div class="row">
+      <div class="col">
+        <img @bounceDown src="../../assets/images/reception_logo.png" alt="" />
+        <div class="box">
+          <div class="content">
+            <div class="row">
+              <div class="cell-8">
+                <form action="" data-role="validator">
+                  <div class="form-group">
+                    <label class="fg-lightGrayBlue text-bold">Usuario</label>
+                    <input class="arctic fg-grayBlue" name="login.username" type="text" data-role="input" data-validate="required">
+                    <span class="invalid_feedback">
+                        ¡Oops! Ingresa tu usuario correctamente...
+                    </span>
+                  </div>
+                  <div class="form-group">
+                    <label class="fg-lightGrayBlue text-bold">Contraseña</label>
+                    <input class="arctic fg-grayBlue" name="login.password" type="password" data-role="input" data-validate="required">
+                    <span class="invalid_feedback">
+                        ¡Oops! Ingresa tu contraseña correctamente...
+                    </span>
+                  </div>
+                  <div class="form-group">
+                      <input type="checkbox" data-role="checkbox" data-caption="Recordarme" data-cls-caption="fg-lightGrayBlue" data-cls-check="bd-grayBlue">
+                  </div>
+                  <div class="form-group">
+                    <button class="button success small rounded" type="submit">Conectarme</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col guest">
+    <div class="row">
+      <div class="col">
+        <div class="box">
+          <div class="content">
+            <div class="slogan display1 text-bold fg-white text-center">
+                Bienvenid@ a Habbo, <br />
+                <h5>Un lugar extraño con gente genial.</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col guest">
+    <div @fadeIn class="hotel-view">
+    </div>
+  </div>
+</div>
