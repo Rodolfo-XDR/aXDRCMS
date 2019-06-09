@@ -1,10 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
-  html {
+@font-face{
+	font-family: 'Ubuntu Light';
+	src: url("./assets/fonts/Ubuntu-L.ttf") format('truetype');
+}  
+
+html {
 	height: 100%;
   }
 	
   html, body {
-	font-family: Ubuntu Light;
+	font-family: 'Ubuntu Light';
 	height: 100% !important;
 	margin: 0;
   }
