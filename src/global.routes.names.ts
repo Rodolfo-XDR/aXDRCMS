@@ -63,4 +63,20 @@ export const globalRoutesNames = {
       url: 'team',
       title: 'Equipo'
     },
+    DISCOVER: {
+      url: 'playing-xukys',
+      title: 'Descubre Xukys'
+    },
+    WHATIS: {
+      url: 'what-is-xukys',
+      title: '¿Qué es Xukys?'
+    },
+    HOWTOPLAY: {
+      url: 'how-to-play',
+      title: '¿Cómo Jugar?'
+    },
+    HELP: {
+      url: 'help',
+      title: 'Ayuda'
+    }
   }

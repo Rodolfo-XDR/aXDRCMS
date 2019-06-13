@@ -25,6 +25,11 @@ import { PreferencesComponent } from './components/user/habbo/settings/preferenc
 import { CustomizationComponent } from './components/user/habbo/settings/customization/customization.component';
 import { GuestComponent } from './components/guest/guest.component';
 import { FooterComponent } from './components/other/footer/footer.component';
+import { PreLoaderComponent } from './components/other/pre-loader/pre-loader.component';
+import { BaseComponent } from './components/base/base.component';
+import { HowToPlayComponent } from './components/user/discover/how-to-play/how-to-play.component';
+import { HelpComponent } from './components/user/discover/help/help.component';
+import { WhatIsComponent } from './components/user/discover/what-is/what-is.component';
 
 @NgModule({
   imports: [
@@ -51,6 +56,11 @@ import { FooterComponent } from './components/other/footer/footer.component';
     CustomizationComponent,
     GuestComponent,
     FooterComponent,
+    PreLoaderComponent,
+    BaseComponent,
+    HowToPlayComponent,
+    HelpComponent,
+    WhatIsComponent,
   ],
   providers: [AuthenticatedGuard, UnauthenticatedGuard],
   bootstrap: [AppComponent]

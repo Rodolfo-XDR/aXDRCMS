@@ -9,6 +9,6 @@ import { CommunityComponent } from '../components/user/community/community.compo
 export const COMMUNITY_ROUTES : Routes = [
     { path: globalRoutesNames.DEFAULT.url, component: CommunityComponent, data: { title: globalRoutesNames.COMMUNITY.title } },
     { path: globalRoutesNames.ARTICLES.url, component: ArticlesComponent, data: { title: globalRoutesNames.ARTICLES.title } },
-    { path: globalRoutesNames.PHOTO_GALLERY.url, component: PhotoGalleryComponent, data: { title: globalRoutesNames.PHOTO_GALLERY.title } },
-    { path: globalRoutesNames.TOP.url, component: TopComponent, data: { title: globalRoutesNames.TOP.title } }
+    //{ path: globalRoutesNames.PHOTO_GALLERY.url, component: PhotoGalleryComponent, data: { title: globalRoutesNames.PHOTO_GALLERY.title } },
+    //{ path: globalRoutesNames.TOP.url, component: TopComponent, data: { title: globalRoutesNames.TOP.title } }
 ];

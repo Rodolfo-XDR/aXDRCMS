@@ -1,0 +1,13 @@
+<div [class.loader-hidden]="!show">
+  <div class="loader-overlay">
+    <div class="row">
+      <div class="col">
+        <div class="box">
+          <div class="content text-center">
+              <span class="fg-white mif-spinner3 mif-5x ani-spin" *ngIf="show"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

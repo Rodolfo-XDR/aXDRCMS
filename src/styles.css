@@ -93,9 +93,18 @@ html {
   ::-webkit-scrollbar-corner {
 	background-color: transparent;
   }
-  p, ul {
+  ul {
 	margin: 0;
 	padding: 0;
+  }
+  hr {
+	border-width: 0 0 8px;
+    clear: both;
+    margin: 1.35em auto;
+	max-width: 100%;
+	border-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2 1"><circle fill="hsla(0, 0%, 0%, 0.3)" cx="1" cy="0.3" r="0.3"/></svg>') 0 0 100% repeat;
+	border-style: inset;
+	background-color: transparent;
 	}
 	.guest-container {
 		width: 100%;

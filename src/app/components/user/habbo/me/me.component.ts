@@ -1,15 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Injector } from '@angular/core';
+import { BaseComponent } from 'src/app/components/base/base.component';
 
 @Component({
   selector: 'app-me',
   templateUrl: '../../../../HTMLs/me.html',
   styleUrls: ['./me.component.css']
 })
-export class MeComponent implements OnInit {
+export class MeComponent extends BaseComponent implements OnInit {
 
-  constructor() { }
+  constructor(injector : Injector) {
+    super(injector);
+   }
 
   ngOnInit() {
+
   }
 
 }

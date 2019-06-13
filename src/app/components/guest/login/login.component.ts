@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Injector } from '@angular/core';
 import { trigger, transition, useAnimation } from '@angular/animations';
 import { slideInLeft, slideOutLeft, fadeIn, fadeOut, slideInUp, slideInDown, slideOutUp, slideOutDown, bounceInDown } from 'ng-animate';
+import { BaseComponent } from '../../base/base.component';
 
 @Component({
   selector: 'app-login',
@@ -20,11 +21,18 @@ import { slideInLeft, slideOutLeft, fadeIn, fadeOut, slideInUp, slideInDown, sli
     ])
   ]
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent extends BaseComponent implements OnInit {
 
-  constructor() { }
+  constructor(injector : Injector) {
+    super(injector);
+   }
 
   ngOnInit() {
+    this.showLoader();
+    setTimeout(() => 
+    {
+      this.hideLoader();
+    }, 1000)
   }
 
 }

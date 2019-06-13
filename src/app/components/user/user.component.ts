@@ -15,7 +15,7 @@ import { globalRoutesNames } from 'src/global.routes.names';
     ]),
     trigger('slideInOut', [
       transition(':enter', useAnimation(slideInLeft, { params: { timing: 0.2 } } )),
-      transition(':leave', useAnimation(slideOutLeft, { params: { timing: 0.2 } } ))
+      transition(':leave', useAnimation(slideOutLeft, { params: { timing: 0.1 } } ))
     ])
   ]
 })
@@ -40,7 +40,10 @@ export class UserComponent implements OnInit {
     console.info("[aXDR Template System] Generating " + this.activatedRoute.routeConfig.children.length + " menu tabs...");
     
     this.activatedRoute.routeConfig.children.forEach((menu) => {
-      let item : menuItem = { _title: menu.data.title, _path: '/' + menu.path};
+
+      let menuPath : string = '/' + ((menu.data.physicalUrl == null || undefined) ? menu.path : menu.data.physicalUrl);
+
+      let item : menuItem = { _title: menu.data.title, _path: '/' + menuPath};
       this.menuTabs.push(item);
     });
   }
@@ -49,10 +52,8 @@ export class UserComponent implements OnInit {
     this.router.events.subscribe(e => {
 
       if(e instanceof NavigationEnd) {
-
+        console.log(this.activatedRoute.firstChild);
         this.currentPage = (this.activatedRoute.firstChild.firstChild.routeConfig.path == globalRoutesNames.DEFAULT.url) ? this.activatedRoute.firstChild.routeConfig : this.activatedRoute.firstChild.firstChild.routeConfig;
-
-      console.log(this.currentPage);
 
         if(this.currentRoute == this.activatedRoute.firstChild)
           return;
