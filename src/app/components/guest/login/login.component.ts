@@ -2,6 +2,9 @@ import { Component, OnInit, Injector } from '@angular/core';
 import { trigger, transition, useAnimation } from '@angular/animations';
 import { slideInLeft, slideOutLeft, fadeIn, fadeOut, slideInUp, slideInDown, slideOutUp, slideOutDown, bounceInDown } from 'ng-animate';
 import { BaseComponent } from '../../base/base.component';
+import { NgForm } from '@angular/forms';
+import { aXDRApiService } from 'src/app/shared/axdrapi.service';
+import { AuthService } from 'src/app/shared/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -23,7 +26,15 @@ import { BaseComponent } from '../../base/base.component';
 })
 export class LoginComponent extends BaseComponent implements OnInit {
 
-  constructor(injector : Injector) {
+  private loginForm = {
+    identification: null,
+    password: null
+  };
+
+  private isError = false;
+  private errorMsg = '';
+
+  constructor(injector : Injector, private test : AuthService) {
     super(injector);
    }
 
@@ -33,6 +44,39 @@ export class LoginComponent extends BaseComponent implements OnInit {
     {
       this.hideLoader();
     }, 1000)
+  }
+
+  login(form: NgForm)
+  {
+    console.log(form.value);
+  }
+
+  errorHandling(error : String) {
+
+    this.isError = true;
+
+    switch(error)
+    {
+      case 'invalid_form':
+        this.errorMsg = "Debes rellenar todos tus datos correctamente";
+        break;
+      case 'wrong_password':
+      case 'user_not_found':
+        this.errorMsg = "Los datos proporcionados son incorrectos";
+        break;
+      case 'invalid_parameters':
+      default:
+        this.errorMsg = "Ha ocurrido un Error (" + error + ")";
+        break;
+    }
+
+    setTimeout(() => this.resetError(), 5000);
+  }
+
+  resetError() 
+  {
+    this.isError = false;
+    this.errorMsg = "";
   }
 
 }

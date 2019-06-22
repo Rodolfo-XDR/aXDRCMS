@@ -1,18 +1,23 @@
 import { Component, OnInit, Injector } from '@angular/core';
 import { PreLoaderService } from '../../shared/pre-loader.service';
+import { aXDRApiService } from 'src/app/shared/axdrapi.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: '',
   template: '',
-  styleUrls: []
+  styleUrls: [],
+  providers: [HttpClient]
 })
 
 export class BaseComponent implements OnInit {
 
-  private loaderService : PreLoaderService;
+  private preLoaderService : PreLoaderService;
+  private apiService : aXDRApiService;
 
   constructor(private injector : Injector) {
-      this.loaderService = this.injector.get(PreLoaderService);
+      this.preLoaderService = this.injector.get(PreLoaderService);
+      this.apiService = this.injector.get(aXDRApiService);
    }
 
   ngOnInit() {
@@ -20,11 +25,16 @@ export class BaseComponent implements OnInit {
 
   public showLoader()
   {
-    this.loaderService.show();
+    this.preLoaderService.show();
   }
 
   public hideLoader()
   {
-    this.loaderService.hide();
+    this.preLoaderService.hide();
+  }
+
+  public send(type, url, data)
+  {
+    return this.apiService.send(type, url, data);
   }
 }

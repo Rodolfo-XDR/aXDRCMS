@@ -1,8 +1,11 @@
 import { NgModule } from '@angular/core';
 
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule  } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { AppRoutingModule } from './app-routing.module';
+import { RecaptchaModule } from 'ng-recaptcha';
 
 import { AppComponent } from './app.component';
 
@@ -34,8 +37,11 @@ import { WhatIsComponent } from './components/user/discover/what-is/what-is.comp
 @NgModule({
   imports: [
     BrowserModule,
+    FormsModule,
+    HttpClientModule,
     BrowserAnimationsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    RecaptchaModule
   ],
   declarations: [ 
     AppComponent,

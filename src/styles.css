@@ -108,10 +108,10 @@ html {
 	}
 	.guest-container {
 		width: 100%;
-	height: 100%;
-	background: #070d19;
-	background-image: url(./assets/images/bg_texture.out.png);
-	background: radial-gradient(circle at center, #00528c, #070d19);
+		min-height: 100%;
+		background: #070d19;
+		background-image: url(./assets/images/bg_texture.out.png);
+		background: radial-gradient(circle at center, #00528c, #070d19);
 	}
   .container {
 	width: 100%;
@@ -345,4 +345,26 @@ html {
 
   .promo > .actions {
 
+  }
+
+  .button.habbo {
+    color: #ffffff;
+    background-color: #1f5409;
+    border: 2px solid #74bd2a;
+    box-shadow: 1px 1px 3px 2px rgba(0, 0, 0, 0.5);
+    font-family: 'Ubuntu Light';
+    border-radius: 0.25rem;
+  }
+
+  .button.habbo.blue {
+	background-color: #00608e;
+    border: 2px solid #0499e4;
+  }
+
+  .button.habbo:hover {
+    background-color: #296d0d;
+  }
+
+  .button.habbo.blue:hover {
+	background-color: #0777ad;
   }
