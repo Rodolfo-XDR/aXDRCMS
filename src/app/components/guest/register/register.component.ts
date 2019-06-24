@@ -47,9 +47,6 @@ export class RegisterComponent extends BaseComponent implements OnInit {
 
   register(form: NgForm)
   {
-
-    console.log(form.controls);
-
     if(form.value == null || undefined || !form.valid)
       return this.errorHandling('invalid_form');
 
@@ -71,11 +68,17 @@ export class RegisterComponent extends BaseComponent implements OnInit {
     if(!this.registrationForm.reCAPTCHA)
       return this.errorHandling('invalid_recaptcha');
 
-    this.send('post', '/user/add', {username: this.registrationForm.username, mail: this.registrationForm.mail, password: this.registrationForm.password})
+    /*this.send('post', '/user/add', {username: this.registrationForm.username, mail: this.registrationForm.mail, password: this.registrationForm.password})
     .subscribe(
       data => { this.resetError() },
       res => this.errorHandling(res.error.message)
-    );
+    );*/
+
+    this.send('post', '/user/add', {username: this.registrationForm.username, mail: this.registrationForm.mail, password: this.registrationForm.password})
+    .then(data => this.resetError())
+    .catch(res => {
+      this.errorHandling(res.error.message)
+    });
   }
 
   resolved(captchaResponse) {

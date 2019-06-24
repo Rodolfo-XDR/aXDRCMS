@@ -8,12 +8,13 @@ import { BaseComponent } from 'src/app/components/base/base.component';
 })
 export class MeComponent extends BaseComponent implements OnInit {
 
+  private user;
+
   constructor(injector : Injector) {
     super(injector);
    }
 
   ngOnInit() {
-
   }
 
 }

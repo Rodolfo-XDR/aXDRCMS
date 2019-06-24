@@ -9,7 +9,7 @@ import { RecaptchaModule } from 'ng-recaptcha';
 
 import { AppComponent } from './app.component';
 
-import { HeaderComponent } from './components/user/header/header.component';
+import { HeaderComponent } from './components/other/header/header.component';
 import { LoginComponent } from './components/guest/login/login.component';
 import { SideComponent } from './components/user/side/side.component';
 import { RegisterComponent } from './components/guest/register/register.component';

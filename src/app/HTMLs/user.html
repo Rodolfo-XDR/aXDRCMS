@@ -1,8 +1,8 @@
 <div class="content">
-    <app-header [menuTabs]="menuTabs" [subMenuTabs]="currentSubMenus"></app-header>
+    <app-header></app-header>
 
-    <div class="wrapper radial">
-        <app-side @slideInOut *ngIf="appSide.indexOf(currentPage.path) > -1" [currentPage]="currentPage"></app-side>
+    <div class="wrapper late">
+        <app-side @slideInOut *ngIf="true"></app-side>
         <div class="page-content">
             <div class="row">
                 <div class="col">

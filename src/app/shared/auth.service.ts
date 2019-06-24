@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { aXDRApiService } from './axdrapi.service';
+import { User } from '../models/user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -7,16 +8,28 @@ import { aXDRApiService } from './axdrapi.service';
 export class AuthService {
 
   private loggedInStatus = false;
+  private User : User;
+  private current;
 
-  constructor(private api : aXDRApiService) { }
+  constructor() { 
+    if(localStorage.getItem('currentUser') != undefined || null)
+    {
+      this.loggedInStatus = true;
+      let currentUser = localStorage.getItem('currentUser');
+      let current = JSON.parse(currentUser);
+    }
+  }
 
-  loginTest(identification, password)
+  changeStatus(status : boolean)
   {
-    this.loggedInStatus = true;
+    this.loggedInStatus = status;
+  }
+
+  get currentUser() {
+    return JSON.parse(localStorage.getItem('currentUser'));
   }
 
   get isLoggedIn() {
-    console.log(this.loggedInStatus);
     return this.loggedInStatus;
   }
 }
