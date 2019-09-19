@@ -1,9 +1,25 @@
 <header>
-    <div class="mainNavigator">
+    <div class="mainNavigator darkBlue">
         <div class="logo"></div>
         <ul class="menu">
             <li *ngFor="let tab of menuTabs">
                 <a [routerLink]="tab._path">{{ tab._title }}</a>
+            </li>
+
+            <li>
+                <a routerLink="/me">Home</a>
+            </li>
+            <li>
+                <a routerLink="/settings">Ajustes</a>
+            </li>
+            <li>
+                <a routerLink="/community/articles">Noticias</a>
+            </li>
+            <li>
+                <a routerLink="/community">Comunidad</a>
+            </li>
+            <li>
+                <a routerLink="/playing-xukys/how-to-play">Como Jugar</a>
             </li>
         </ul>
     </div>

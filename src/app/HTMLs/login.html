@@ -7,17 +7,18 @@
           <div class="content">
             <div class="row">
               <div class="cell-8">
-                <form action="" data-role="validator">
+                <div @fadeIn *ngIf="isError" class="bg-darkRed fg-white rounded text-small text-bold mb-2 p-2">{{errorMsg}}</div>
+                <form  #loginForm="ngForm" (ngSubmit)="login(loginForm)" data-role="validator" action="javascript:" data-interactive-check="true">
                   <div class="form-group">
                     <label class="fg-lightGrayBlue text-bold">Usuario</label>
-                    <input class="arctic fg-grayBlue" name="login.username" type="text" data-role="input" data-validate="required">
+                    <input class="arctic fg-grayBlue" name="login.identification" #loginForm.identification="ngModel" [(ngModel)]="loginForm.identification" type="text" data-role="input" data-validate="required">
                     <span class="invalid_feedback">
                         ¡Oops! Ingresa tu usuario correctamente...
                     </span>
                   </div>
                   <div class="form-group">
                     <label class="fg-lightGrayBlue text-bold">Contraseña</label>
-                    <input class="arctic fg-grayBlue" name="login.password" type="password" data-role="input" data-validate="required">
+                    <input class="arctic fg-grayBlue" name="login.password" #loginForm.password="ngModel" [(ngModel)]="loginForm.password" type="password" data-role="input" data-validate="required">
                     <span class="invalid_feedback">
                         ¡Oops! Ingresa tu contraseña correctamente...
                     </span>
@@ -26,7 +27,8 @@
                       <input type="checkbox" data-role="checkbox" data-caption="Recordarme" data-cls-caption="fg-lightGrayBlue" data-cls-check="bd-grayBlue">
                   </div>
                   <div class="form-group">
-                    <button class="button success small rounded" type="submit">Conectarme</button>
+                    <button class="button habbo small" type="submit">Conectarme</button>
+                    <a routerLink="/quickregister" class="fg-white button habbo small blue float-right">¡Registrarme!</a>
                   </div>
                 </form>
               </div>
@@ -44,6 +46,8 @@
             <div class="slogan display1 text-bold fg-white text-center">
                 Bienvenid@ a Habbo, <br />
                 <h5>Un lugar extraño con gente genial.</h5>
+                <button routerLink="/quickregister" class="button habbo text-bold">Únete Ahora</button>
+                <button (click)="prueba()" class="button habbo text-bold">Prueba</button>
             </div>
           </div>
         </div>

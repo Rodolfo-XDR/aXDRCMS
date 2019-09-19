@@ -1,13 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Injector } from '@angular/core';
 import { Router, ActivatedRoute, NavigationEnd, Route } from '@angular/router';
 import { menuItem } from 'src/app/models/menuItem';
 import { trigger, transition, useAnimation } from '@angular/animations';
 import { fadeIn, slideOutLeft, slideInLeft } from 'ng-animate';
 import { globalRoutesNames } from 'src/global.routes.names';
+import { BaseComponent } from '../base/base.component';
+import { MenuService } from 'src/app/shared/menu.service';
 
 @Component({
   selector: 'app-user',
-  templateUrl: './user.component.html',
+  templateUrl: '../../HTMLs/user.html',
   styleUrls: ['./user.component.css'],
   animations: [
     trigger('fadeIn', [
@@ -19,68 +21,13 @@ import { globalRoutesNames } from 'src/global.routes.names';
     ])
   ]
 })
-export class UserComponent implements OnInit {
-  
-  currentRoute : ActivatedRoute;
-  currentPage: Route;
-  menuTabs : menuItem[] = [];
-  currentSubMenus : menuItem[] = [];
+export class UserComponent extends BaseComponent implements OnInit {
 
-  appSide : string[] = [
-    globalRoutesNames.ME.url, 
-    globalRoutesNames.SETTINGS.url
-  ];
+  appSide : string[] = [];
+  currentPage;
 
-  constructor(private router : Router, private activatedRoute : ActivatedRoute){
-    this.generateMenus();
-    this.generateSubMenus();
-  }
-
-  generateMenus() {
-    console.info("[aXDR Template System] Generating " + this.activatedRoute.routeConfig.children.length + " menu tabs...");
-    
-    this.activatedRoute.routeConfig.children.forEach((menu) => {
-
-      let menuPath : string = '/' + ((menu.data.physicalUrl == null || undefined) ? menu.path : menu.data.physicalUrl);
-
-      let item : menuItem = { _title: menu.data.title, _path: '/' + menuPath};
-      this.menuTabs.push(item);
-    });
-  }
-
-  generateSubMenus() {
-    this.router.events.subscribe(e => {
-
-      if(e instanceof NavigationEnd) {
-        console.log(this.activatedRoute.firstChild);
-        this.currentPage = (this.activatedRoute.firstChild.firstChild.routeConfig.path == globalRoutesNames.DEFAULT.url) ? this.activatedRoute.firstChild.routeConfig : this.activatedRoute.firstChild.firstChild.routeConfig;
-
-        if(this.currentRoute == this.activatedRoute.firstChild)
-          return;
-
-        console.info("[aXDR Template System] Generating " + this.activatedRoute.firstChild.routeConfig.children.length + " submenu tabs for " + this.activatedRoute.firstChild.routeConfig.data.title +  "...");
-        
-        this.currentSubMenus = [];
-
-        if(this.activatedRoute.firstChild.routeConfig.children != null || undefined)
-        {
-          this.activatedRoute.firstChild.routeConfig.children.forEach((child) => {
-            
-            let childPath : string = '/' + ((child.data.physicalUrl == null || undefined) ? child.path : child.data.physicalUrl);
-            let parentPath : string = '/' + this.activatedRoute.firstChild.routeConfig.path;
-
-            let fullPath : string = childPath;
-
-            if(this.activatedRoute.firstChild.routeConfig.path != '')
-              fullPath = parentPath.concat(childPath);
-
-            let subMenu : menuItem = { _title: child.data.title, _path: fullPath}; 
-            this.currentSubMenus.push(subMenu);
-            this.currentRoute = this.activatedRoute.firstChild;
-          });
-        }
-      }
-    });
+  constructor(injector : Injector){
+    super(injector);
   }
 
   ngOnInit() {

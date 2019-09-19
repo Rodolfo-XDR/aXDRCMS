@@ -1,8 +1,10 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Injector } from '@angular/core';
 import { trigger, transition, useAnimation } from '@angular/animations';
 import { slideOutLeft, fadeIn } from 'ng-animate';
 import { Router, NavigationEnd } from '@angular/router';
 import { globalRoutesNames } from 'src/global.routes.names';
+import { BaseComponent } from '../../base/base.component';
+import { MenuService } from 'src/app/shared/menu.service';
 
 @Component({
   selector: 'app-side',
@@ -17,12 +19,12 @@ import { globalRoutesNames } from 'src/global.routes.names';
     ])
   ]
 })
-export class SideComponent implements OnInit {
+export class SideComponent extends BaseComponent implements OnInit {
 
-  @Input() currentPage;
+  private currentPage : string = '';
 
-  constructor(private router : Router) {
-
+  constructor(injector : Injector) {
+    super(injector);
   }
 
   ngOnInit() {
