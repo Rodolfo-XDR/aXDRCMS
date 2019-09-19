@@ -10,18 +10,34 @@ import { USER_ROUTES } from './user.routes';
 import { Error404Component } from '../components/other/error404/error404.component';
 import { UserComponent } from '../components/user/user.component';
 import { GuestComponent } from '../components/guest/guest.component';
+import { AcpComponent } from '../components/user/acp/acp.component';
+import { ClientComponent } from '../components/user/client/client.component';
 
 export const APP_ROUTES: Routes = [
     {
         path: globalRoutesNames.DEFAULT.url,
         component: GuestComponent,
         children: GUEST_ROUTES, 
+        data: {title: "Guest"},
         canActivateChild: [UnauthenticatedGuard]
     },
     {
         path: globalRoutesNames.DEFAULT.url,
         component: UserComponent,
         children: USER_ROUTES,
+        data: {title: "User"},
+        canActivateChild: [AuthenticatedGuard]
+    },
+    {
+        path: 'client',
+        component: ClientComponent,
+        data: { title: "Client" },
+        canActivateChild: [AuthenticatedGuard]
+    },
+    { 
+        path: 'acp', 
+        component: AcpComponent,
+        data: {title: 'Admin Control Panel'},
         canActivateChild: [AuthenticatedGuard]
     },
     {

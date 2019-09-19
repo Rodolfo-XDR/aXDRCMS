@@ -5,11 +5,12 @@ import { Router, NavigationEnd } from '@angular/router';
 import { globalRoutesNames } from 'src/global.routes.names';
 import { BaseComponent } from '../../base/base.component';
 import { MenuService } from 'src/app/shared/menu.service';
+import { User } from 'src/app/models/user.model';
 
 @Component({
   selector: 'app-side',
   templateUrl: '../../../HTMLs/side.html',
-  styleUrls: ['./side.component.css'],
+  styleUrls: ['../../../../assets/css/side.component.css'],
   animations: [
     trigger('fadeIn', [
       transition(':enter', useAnimation(fadeIn, { params: { timing: 1 } } ))
@@ -20,14 +21,21 @@ import { MenuService } from 'src/app/shared/menu.service';
   ]
 })
 export class SideComponent extends BaseComponent implements OnInit {
+  @Input() currentPage;
 
-  private currentPage : string = '';
+  private currentHabbo : User;
 
   constructor(injector : Injector) {
     super(injector);
   }
 
   ngOnInit() {
+    this.ping()
+    .then(() => {
+      this.currentHabbo = this.getHabbo();
+    }).catch(err => {
+      
+    });
   }
 
 }

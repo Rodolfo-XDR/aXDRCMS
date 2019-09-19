@@ -4,11 +4,12 @@ import { slideInLeft, slideOutLeft, fadeIn, fadeOut, slideInUp, slideOutDown, bo
 import { BaseComponent } from '../../base/base.component';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { User } from 'src/app/models/user.model';
 
 @Component({
   selector: 'app-login',
   templateUrl: '../../../HTMLs/login.html',
-  styleUrls: ['./login.component.css'],
+  styleUrls: ['../../../../assets/css/login.component.css'],
   animations: [
     trigger('fadeIn', [
       transition(':enter', useAnimation(fadeIn, { params: { timing: 1 } } )),
@@ -33,16 +34,11 @@ export class LoginComponent extends BaseComponent implements OnInit {
   private isError = false;
   private errorMsg = '';
 
-  constructor(injector : Injector) {
+  constructor(injector : Injector, private router : Router) {
     super(injector);
    }
 
   ngOnInit() {
-    this.showLoader();
-    setTimeout(() => 
-    {
-      this.hideLoader();
-    }, 1000)
   }
 
   login(form: NgForm)
@@ -58,23 +54,20 @@ export class LoginComponent extends BaseComponent implements OnInit {
     if(this.loginForm.identification == undefined || this.loginForm.password == undefined)
       return this.errorHandling('invalid_form');
 
-    this.send('post', '/auth/login', {identification: this.loginForm.identification, password: this.loginForm.password})
-    .then(data => {
-      this.resetError();
-      this.changeStatus(true);
-    })
-    .catch(res => {
-      this.errorHandling(res.error.message)
-    });
-  }
+    this.logIn(this.loginForm.identification, this.loginForm.password).then(data => {
+      if(localStorage.getItem('currentUser') == undefined || null)
+      this.errorHandling('invalid_localStorage')
+    
+      let localUser = JSON.parse(localStorage.getItem('currentUser'));
 
-  prueba()
-  {
-    this.send('get', '/auth/session/logout', null)
-    .then(data => this.resetError())
-    .catch(res => {
-      if(res.errors == false) return;
-      this.errorHandling(res.error.message)
+      if(localUser == undefined || null) return;
+
+      let tempHabbo : User = new User(localUser.habbo.id, localUser.habbo.username, localUser.habbo.mail, localUser.habbo.rank, localUser.habbo.motto, localUser.habbo.look, localUser.habbo.auth_ticket);
+      this.setHabbo(tempHabbo);
+
+      this.router.navigate(['/me']);
+    }).catch(err => {
+      this.errorHandling(err.error.message)
     });
   }
 
@@ -92,6 +85,7 @@ export class LoginComponent extends BaseComponent implements OnInit {
         this.errorMsg = "Los datos proporcionados son incorrectos";
         break;
       case 'invalid_parameters':
+      case 'invalid_localStorage':
       default:
         this.errorMsg = "Ha ocurrido un Error (" + error + ")";
         break;

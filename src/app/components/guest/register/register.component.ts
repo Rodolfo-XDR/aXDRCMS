@@ -4,11 +4,28 @@ import { NgForm } from '@angular/forms';
 import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
 import { dialog } from 'metro4'
 import { MetadataOverrider } from '@angular/core/testing/src/metadata_overrider';
+import { trigger, transition, useAnimation } from '@angular/animations';
+import { fadeIn, fadeOut, slideInLeft, slideOutDown, bounceOutLeft, bounceInRight } from 'ng-animate';
+import { User } from 'src/app/models/user.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
   templateUrl: '../../../HTMLs/register.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: ['../../../../assets/css/register.component.css'],
+  animations: [
+    trigger('fadeIn', [
+      transition(':enter', useAnimation(fadeIn, { params: { timing: 1 } } )),
+      transition(':leave', useAnimation(fadeOut, { params: { timing: 1 } } ))
+    ]),
+    trigger('slideInOut', [
+      transition(':enter', useAnimation(slideInLeft, { params: { timing: 0.3 } } )),
+      transition(':leave', useAnimation(slideOutDown, { params: { timing: 1 } } ))
+    ]),
+    trigger('bounceInRight', [
+      transition(':leave', useAnimation(bounceInRight, { params: { timing: 0.5 } }))
+    ])
+  ]
 })
 export class RegisterComponent extends BaseComponent implements OnInit {
 
@@ -24,7 +41,7 @@ export class RegisterComponent extends BaseComponent implements OnInit {
   private isError = false;
   private errorMsg = '';
 
-  constructor(injector : Injector) {
+  constructor(injector : Injector, private router : Router) {
     super(injector);
 
     this.registrationForm = {
@@ -38,11 +55,6 @@ export class RegisterComponent extends BaseComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.showLoader();
-    setTimeout(() => 
-    {
-      this.hideLoader();
-    }, 1000)
   }
 
   register(form: NgForm)
@@ -75,7 +87,22 @@ export class RegisterComponent extends BaseComponent implements OnInit {
     );*/
 
     this.send('post', '/user/add', {username: this.registrationForm.username, mail: this.registrationForm.mail, password: this.registrationForm.password})
-    .then(data => this.resetError())
+    .then(data => {
+      this.logIn(this.registrationForm.username, this.registrationForm.password)
+      .then(data => {
+        if(localStorage.getItem('currentUser') == undefined || null)
+        this.errorHandling('invalid_localStorage')
+      
+        let localUser = JSON.parse(localStorage.getItem('currentUser'));
+  
+        if(localUser == undefined || null) return;
+  
+        let tempHabbo : User = new User(localUser.habbo.id, localUser.habbo.username, localUser.habbo.mail, localUser.habbo.rank, localUser.habbo.motto, localUser.habbo.look, localUser.habbo.auth_ticket);
+        this.setHabbo(tempHabbo);
+  
+        this.router.navigate(['/me']);
+      });
+    })
     .catch(res => {
       this.errorHandling(res.error.message)
     });

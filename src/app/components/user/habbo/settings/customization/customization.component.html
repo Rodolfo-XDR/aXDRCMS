@@ -1,21 +1,18 @@
 <div class="container">
   <div class="row">
-    <div class="col">
-      <div class="box fg-white">
-        <div class="title">Personaliza Tu Web</div>
-        <div class="content">
+    <div class="cell">
+      <div class="box">
+        <div class="title fg-white">Personaliza Tu Web</div>
+        <div class="content fg-white">
           <div class="row">
-            <div class="col">
+            <div class="cell">
               <form action="">
                 <h6><b>HabboWEB</b></h6>
                   <div class="row mb-2">
                     <div class="cell-sm-4 fg-light">Elige tu propio estilo de fondo</div>
                     <div class="cell-sm-4">
-                      <select class="arctic fg-white" data-role="select" data-filter="false">
-                        <option value="1" data-template="<span class='mif-snowy icon'></span> $1">Normal</option>
-                        <option value="2" data-template="<span class='mif-moon icon'></span> $1">Noche</option>
-                        <option value="3" data-template="<span class='mif-sunrise icon'></span> $1">Tarde</option>
-                        <option value="4" data-template="<span class='mif-sun icon'></span> $1">Día</option>
+                      <select class="arctic fg-white" name="background" [(ngModel)]="background" data-role="select" data-filter="false">
+                        <option *ngFor="let option of bgOptions" value="option.bgValue">{{ option.name }}</option>
                       </select>
                     </div>
                   </div>
@@ -30,9 +27,21 @@
                         </select>
                       </div>
                   </div>
+                  <div class="row mb-2">
+                    <div class="cell-sm-4 fg-light">Test 1</div>
+                    <div class="cell-sm-4">
+                      <button (click)="setBackground('nite')" class="button habbo">Prueba</button>
+                    </div>
+                </div>
+                <div class="row mb-2">
+                  <div class="cell-sm-4 fg-light">Test 2</div>
+                  <div class="cell-sm-4">
+                    <button (click)="setBackground('late')" class="button habbo">Prueba 2</button>
+                  </div>
+              </div>
               </form>
             </div>
-            <div class="col">
+            <div class="cell">
               <div class="box darkTransparent fg-light">
                 <div class="title">¿NECESITAS AYUDA?</div>
                 <div class="content">

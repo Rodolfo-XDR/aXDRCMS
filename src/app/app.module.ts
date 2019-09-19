@@ -11,7 +11,7 @@ import { AppComponent } from './app.component';
 
 import { HeaderComponent } from './components/other/header/header.component';
 import { LoginComponent } from './components/guest/login/login.component';
-import { SideComponent } from './components/user/side/side.component';
+import { SideComponent } from './components/other/side/side.component';
 import { RegisterComponent } from './components/guest/register/register.component';
 import { MeComponent } from './components/user/habbo/me/me.component';
 import { SettingsComponent } from './components/user/habbo/settings/settings.component';
@@ -33,6 +33,8 @@ import { BaseComponent } from './components/base/base.component';
 import { HowToPlayComponent } from './components/user/discover/how-to-play/how-to-play.component';
 import { HelpComponent } from './components/user/discover/help/help.component';
 import { WhatIsComponent } from './components/user/discover/what-is/what-is.component';
+import { AcpComponent } from './components/user/acp/acp.component';
+import { ClientComponent } from './components/user/client/client.component';
 
 @NgModule({
   imports: [
@@ -67,6 +69,8 @@ import { WhatIsComponent } from './components/user/discover/what-is/what-is.comp
     HowToPlayComponent,
     HelpComponent,
     WhatIsComponent,
+    AcpComponent,
+    ClientComponent,
   ],
   providers: [AuthenticatedGuard, UnauthenticatedGuard],
   bootstrap: [AppComponent]

@@ -1,49 +1,29 @@
-<header>
-    <div class="mainNavigator darkBlue">
-        <div class="logo"></div>
-        <ul class="menu">
-            <li *ngFor="let tab of menuTabs">
-                <a [routerLink]="tab._path">{{ tab._title }}</a>
-            </li>
-
-            <li>
-                <a routerLink="/me">Home</a>
-            </li>
-            <li>
-                <a routerLink="/settings">Ajustes</a>
-            </li>
-            <li>
-                <a routerLink="/community/articles">Noticias</a>
-            </li>
-            <li>
-                <a routerLink="/community">Comunidad</a>
-            </li>
-            <li>
-                <a routerLink="/playing-xukys/how-to-play">Como Jugar</a>
-            </li>
-        </ul>
+<div class="container-fluid">
+    <div class="grid mb-0">
+        <div class="row arctic-header py-2">
+            <div class="cell-auto arctic-logo px-3">
+                <img src="../../assets/images/habbologo_blackR.gif" alt="">
+            </div>
+            <div class="cell arctic-cell-menu">
+                <ul class="h-menu arctic-menu">
+                    <li *ngFor="let tab of menuTabs">
+                        <a [routerLink]="tab._path">{{ tab._title }}</a>
+                    </li>        
+                </ul>
+            </div>
+            <div class="cell-2">
+                <button routerLink="/" (click)="logout()" class="button habbo red float-right">Salir</button>
+            </div>
+        </div>
+        <div class="row arctic-subHeader py-2">
+            <div class="cell">
+                <ul class="h-menu arctic-subMenu">
+                    <li @fadeInOut *ngFor="let subTab of subMenuTabs">
+                        <a [routerLink]="subTab._path">{{ subTab._title }}</a>
+                    </li>
+                
+                </ul>
+            </div>
+        </div>
     </div>
-    <div class="subNavigator">
-        <ul class="menu">
-            <li @fadeInOut *ngFor="let subTab of subMenuTabs">
-                <a [routerLink]="subTab._path">{{ subTab._title }}</a>
-            </li>
-        </ul>
-    </div>
-</header>
-
-<!--
-
-            <ul class="mainNavigator">
-            <li><a href="#">Main 1</a></li>
-            <li><a href="#">Main 2</a></li>
-            <li><a href="#">Main 3</a></li>
-            <li><a href="#">Main 4</a></li>
-        </ul>
-        <ul class="subNavigator">
-            <li><a href="#">Sub 1</a></li>
-            <li><a href="#">Sub 2</a></li>
-            <li><a href="#">Sub 3</a></li>
-            <li><a href="#">Sub 4</a></li>
-        </ul>
--->
+</div>

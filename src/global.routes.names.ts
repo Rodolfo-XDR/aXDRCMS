@@ -64,12 +64,12 @@ export const globalRoutesNames = {
       title: 'Equipo'
     },
     DISCOVER: {
-      url: 'playing-xukys',
-      title: 'Descubre Xukys'
+      url: 'playing-habbo',
+      title: 'Descubre Habbo'
     },
     WHATIS: {
-      url: 'what-is-xukys',
-      title: '¿Qué es Xukys?'
+      url: 'what-is-habbo',
+      title: '¿Qué es Habbo?'
     },
     HOWTOPLAY: {
       url: 'how-to-play',

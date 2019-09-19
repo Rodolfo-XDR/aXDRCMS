@@ -1,35 +1,72 @@
 import { Injectable } from '@angular/core';
 import { aXDRApiService } from './axdrapi.service';
 import { User } from '../models/user.model';
+import { Subject, BehaviorSubject } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  private loggedInStatus = false;
-  private User : User;
-  private current;
+  private loggedInStatus : boolean = false;
 
-  constructor() { 
-    if(localStorage.getItem('currentUser') != undefined || null)
-    {
-      this.loggedInStatus = true;
-      let currentUser = localStorage.getItem('currentUser');
-      let current = JSON.parse(currentUser);
-    }
+  constructor(private apiService : aXDRApiService, private router : Router) {
+    this.verifyUser();
   }
 
-  changeStatus(status : boolean)
+  logIn(identification, password) : Promise<any>
   {
-    this.loggedInStatus = status;
+    return this.apiService.send('post', '/auth/login', {identification: identification, password: password})
+    .then(data => {
+      this.loggedInStatus = true;
+      return Promise.resolve(data);
+    })
+    .catch(err => {
+      return Promise.reject(err);
+    })
   }
 
-  get currentUser() {
-    return JSON.parse(localStorage.getItem('currentUser'));
+  logOut()
+  {
+    this.apiService.send('get', '/auth/session/logout', null)
+    .then(data => {
+      if(localStorage.getItem('currentUser') != undefined || null) localStorage.removeItem('currentUser');
+      this.loggedInStatus = false; 
+      this.router.navigate(['/']);
+    } )
+    .catch(res => {
+      if(res.errors == false) {
+        return;
+      }
+
+      this.router.navigate(['/']);
+    });
   }
 
-  get isLoggedIn() {
+  verifyUser()
+  {
+      if(localStorage.getItem('currentUser') != undefined && localStorage['currentUser'] != 'undefined')
+      {
+        let localUser = JSON.parse(localStorage.getItem('currentUser'));
+  
+        this.loggedInStatus = true;
+        return;
+      }
+  
+      //TODO: This should be this.logout();
+      this.loggedInStatus = false;
+      this.router.navigate(['/']);
+  }
+
+  ping()
+  {
+    return this.apiService.send('get', '/authentication/session/get', null)
+    .then((res) => { return Promise.resolve(res) } )
+    .catch((err) => { return Promise.reject(err); } );
+  }
+
+  get isLoggedIn() : boolean {
     return this.loggedInStatus;
   }
 }

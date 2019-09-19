@@ -1,0 +1,139 @@
+/*New UI Design!*/
+div.header {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.6);
+  box-shadow: 0px 1px 0px 0px rgba(66, 66, 66, 0.3);
+  font-family: Ubuntu Light;
+  font-weight: bold;
+  font-size: 18pt;
+  padding: 4px 0;
+  text-indent: 25px;
+}
+
+div.user-data {
+  display: -webkit-inline-box;
+  padding: 15px 0;
+  width: 100%;
+}
+
+div.user-data div.avatar {
+  background: url(../images/ui-assets.png);
+  width: 115px;
+  height: 115px;
+  overflow: hidden;
+  background-position: -20px -164px;
+  border-radius: 248px;
+  display: block;
+}
+
+div.user-data div.avatar img {
+  position: relative;
+  top: -20px;
+  left: -12px;
+}
+
+div.user-data div.information {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.6);
+  box-shadow: 0px 1px 0px 0px rgba(66, 66, 66, 0.3);
+  display: inline-block;
+  max-width: 180px;
+}
+
+div.user-data div.information div.motto {
+  font-size: 11pt;
+  color: rgba(255, 255, 255, 0.2);
+  margin: 4px 0;
+  font-weight: bold;
+  font-style: italic;
+}
+
+div.user-data div.information div.last-login {
+  font-size: 9pt;
+  margin: 4px 0;
+}
+div.user-data div.information div.join-date {
+  font-size: 9pt;
+  margin: 4px 0;
+}
+
+ul.sub-menu {
+  list-style: none;
+}
+
+ul.sub-menu li {
+  margin: 8px 0;
+}
+
+ul.sub-menu li a {
+  color: #1d6b9a;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 13pt;
+}
+
+ul.sub-menu li a:hover {
+  color: #42a1da;
+}
+
+span {
+  display: -webkit-inline-box;
+}
+
+span#status {
+  margin: 5px 15px;
+  float:right;
+}
+
+span#status.online {
+  background: url(../images/online.gif) center center no-repeat;
+  height: 17px;
+  width: 40px;
+}
+
+span#status.offline {
+  background: url(../images/offline.gif) center center no-repeat;
+  height: 17px;
+  width: 40px;
+}
+
+span.groups {
+  background: url(../images/ui-assets.png);
+  display: -webkit-inline-box;
+  height: 16px;
+  width: 22px;
+  background-position: 77px 803px;
+}
+span.friends {
+  background: url(../images/ui-assets.png);
+  display: -webkit-inline-box;
+  height: 16px;
+  width: 22px;
+  background-position: 117px 496px;
+}
+
+span.online {
+  background: url(../images/ui-assets.png);
+  display: -webkit-inline-box;
+  height: 20px;
+  width: 22px;
+  margin: 0px 4px -5px;
+  background-position: 120px 392px;
+}
+
+span.offline {
+  background: url(../images/ui-assets.png);
+  display: -webkit-inline-box;
+  height: 20px;
+  width: 22px;
+  margin: 0px 4px -5px;
+  background-position: 119px 417px;
+}
+
+div.friends {
+  margin: 10px;
+  font-size: 10pt;
+  color: #ffffff
+}
+
+button.small {
+  line-height: 20px;
+}
