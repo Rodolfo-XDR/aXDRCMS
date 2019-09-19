@@ -4,7 +4,10 @@ import { slideInLeft, slideOutLeft, fadeIn, fadeOut, slideInUp, slideOutDown, bo
 import { BaseComponent } from '../../base/base.component';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+<<<<<<< HEAD
 import { User } from 'src/app/models/user.model';
+=======
+>>>>>>> 9266f973b0957821c6a96341aaf0c69e0df6ae65
 
 @Component({
   selector: 'app-login',
@@ -34,7 +37,11 @@ export class LoginComponent extends BaseComponent implements OnInit {
   private isError = false;
   private errorMsg = '';
 
+<<<<<<< HEAD
   constructor(injector : Injector, private router : Router) {
+=======
+  constructor(injector : Injector) {
+>>>>>>> 9266f973b0957821c6a96341aaf0c69e0df6ae65
     super(injector);
    }
 
@@ -86,6 +93,67 @@ export class LoginComponent extends BaseComponent implements OnInit {
         break;
       case 'invalid_parameters':
       case 'invalid_localStorage':
+      default:
+        this.errorMsg = "Ha ocurrido un Error (" + error + ")";
+        break;
+    }
+
+    setTimeout(() => this.resetError(), 5000);
+  }
+
+  resetError() 
+  {
+    this.isError = false;
+    this.errorMsg = "";
+  }
+
+  login(form: NgForm)
+  {
+    if(form.value == null || undefined || !form.valid)
+      return this.errorHandling('invalid_form');
+
+    this.loginForm = {
+      identification: form.value["login.identification"],
+      password: form.value["login.password"]
+    }
+
+    if(this.loginForm.identification == undefined || this.loginForm.password == undefined)
+      return this.errorHandling('invalid_form');
+
+    this.send('post', '/auth/login', {identification: this.loginForm.identification, password: this.loginForm.password})
+    .then(data => {
+      this.resetError();
+      this.changeStatus(true);
+    })
+    .catch(res => {
+      this.errorHandling(res.error.message)
+    });
+  }
+
+  prueba()
+  {
+    this.send('get', '/auth/session/logout', null)
+    .then(data => this.resetError())
+    .catch(res => {
+      if(res.errors == false) return;
+      this.errorHandling(res.error.message)
+    });
+  }
+
+  errorHandling(error : String) {
+
+    this.isError = true;
+
+    switch(error)
+    {
+      case 'invalid_form':
+        this.errorMsg = "Debes rellenar todos tus datos correctamente";
+        break;
+      case 'wrong_password':
+      case 'user_not_found':
+        this.errorMsg = "Los datos proporcionados son incorrectos";
+        break;
+      case 'invalid_parameters':
       default:
         this.errorMsg = "Ha ocurrido un Error (" + error + ")";
         break;

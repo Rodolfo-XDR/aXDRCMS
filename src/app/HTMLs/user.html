@@ -1,14 +1,18 @@
-<div class="container-fluid arctic-body h-100">
-    <div class="grid mb-0 arctic-grid h-100">
-        <div class="row">
-            <app-header></app-header>
-        </div>
-        <div class="row arctic-body {{background}}">
-            <app-side @slideInOut [currentPage]="currentPage" *ngIf="active" class="darken"></app-side>
-            <div class="cell p-0 arctic-content">
-                <div class="fg-white"></div>
-                <router-outlet></router-outlet>
+<div class="content">
+    <app-header></app-header>
+
+    <div class="wrapper late">
+        <app-side @slideInOut *ngIf="true"></app-side>
+        <div class="page-content">
+            <div class="row">
+                <div class="col">
+                    <!--<div class="box fg-light bg-red drop-shadow">
+                        <div class="content"><b>¡Atención Mr.Mustache! Al parecer el hotel se encuentra en mantenimiento...</b></div>
+                    </div>-->
+                </div>
             </div>
+            <router-outlet></router-outlet>
+            <app-footer></app-footer>
         </div>
     </div>
 </div>

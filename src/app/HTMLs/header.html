@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="container-fluid">
     <div class="grid mb-0">
         <div class="row arctic-header py-2">
@@ -25,5 +26,31 @@
                 </ul>
             </div>
         </div>
+=======
+<header>
+    <div class="mainNavigator darkBlue">
+        <div class="logo"></div>
+        <ul class="menu">
+            <li *ngFor="let tab of menuTabs">
+                <a [routerLink]="tab._path">{{ tab._title }}</a>
+            </li>
+
+            <li>
+                <a routerLink="/me">Home</a>
+            </li>
+            <li>
+                <a routerLink="/settings">Ajustes</a>
+            </li>
+            <li>
+                <a routerLink="/community/articles">Noticias</a>
+            </li>
+            <li>
+                <a routerLink="/community">Comunidad</a>
+            </li>
+            <li>
+                <a routerLink="/playing-xukys/how-to-play">Como Jugar</a>
+            </li>
+        </ul>
+>>>>>>> 9266f973b0957821c6a96341aaf0c69e0df6ae65
     </div>
 </div>
