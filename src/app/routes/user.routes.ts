@@ -10,6 +10,7 @@ export const USER_ROUTES : Routes = [
         path: globalRoutesNames.USER.children.HABBO.url, 
         children: HABBO_ROUTES, 
         data: { 
+            id: globalRoutesNames.USER.children.HABBO.id,
             title: globalRoutesNames.USER.children.HABBO.title, 
             directURL: globalRoutesNames.USER.children.HABBO.directURL
         } 
@@ -18,6 +19,7 @@ export const USER_ROUTES : Routes = [
         path: globalRoutesNames.USER.children.COMMUNITY.url, 
         children: COMMUNITY_ROUTES, 
         data: { 
+            id: globalRoutesNames.USER.children.COMMUNITY.id,
             title: globalRoutesNames.USER.children.COMMUNITY.title
         }
     },
@@ -25,6 +27,7 @@ export const USER_ROUTES : Routes = [
         path: globalRoutesNames.USER.children.DISCOVER.url,
         children: DISCOVER_ROUTES,
         data: {
+            id: globalRoutesNames.USER.children.DISCOVER.id,
             title: globalRoutesNames.USER.children.DISCOVER.title,
             directURL: globalRoutesNames.USER.children.DISCOVER.directURL
         }

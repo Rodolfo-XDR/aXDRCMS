@@ -3,7 +3,7 @@
 ##### Mr.Mustache - Arctic Development
 
 ### Getting Started
-> aXDR CMS is a fresh from scratch Emulation website which emulates HabboWEB in a different style. **aXDR** stands for Azure XDR Content Management System. Although this system is pretty different to the original version of this system, the fundamental idea of aXDR has not changed. **XDR** WEB offered a better system that could overlap other projects with newew technologies and functions. Right now aXDR is divided into two parts: *aXDR WEB App* **(FrontEnd)** & *aXDR API* **(Backend)**. This repository is only for aXDR WEB App made in angular.
+> aXDR CMS is a fresh from scratch Emulation website which emulates HabboWEB in a different style. **aXDR** stands for Azure XDR Content Management System. Although this project is pretty different to the original version created by **Boris Akopov**, the fundamental idea of **XDR** has not changed. **XDR** WEB offered a better system that could overlap other projects with modern technologies and functions. Right now aXDR is divided into two parts: *aXDR WEB App* **(FrontEnd)** & *aXDR API* **(Backend)**. This repository is only for aXDR WEB App made in angular.
 
 ### Features
 + aXDR WEB App is currently working under *Angular 7.2*.

@@ -38,6 +38,7 @@ export const globalRoutesNames = {
     title: 'USER',
     children: {
       HABBO: {
+        id: 'HABBO',
         url: '',
         directURL: 'me',
         title: '%USERNAME%',
@@ -73,6 +74,7 @@ export const globalRoutesNames = {
         }
       },
       COMMUNITY: {
+        id: 'COMMUNITY',
         url: 'community',
         title: 'Comunidad',
         children: {
@@ -95,6 +97,7 @@ export const globalRoutesNames = {
         }
       },
       DISCOVER: {
+        id: 'DISCOVER',
         url: 'playing',
         title: 'Descubre %HOTELNAME%',
         directURL: 'what-is',

@@ -31,10 +31,10 @@ export class HeaderComponent extends BaseComponent implements OnInit, OnDestroy 
   ngOnInit() {
     this.menuTabs = this.menuService.getTabs;
     this.replaceVariables();
-
+    this.checkCurrentPage();
     this._routerSub = this.router.events.subscribe(e => {
       if(e instanceof NavigationEnd) {
-        console.log(e);
+        this.checkCurrentPage();
       }
     })
   }
@@ -49,6 +49,13 @@ export class HeaderComponent extends BaseComponent implements OnInit, OnDestroy 
         child._title = child._title.replace('%HOTELNAME%', 'Habbo');
       })
     });
+  }
+
+  checkCurrentPage() {
+    this.menuTabs.forEach(tab => {
+      if(this.activatedRoute.firstChild.routeConfig.data.id == tab._id)
+        this.subMenuTabs = tab._children;
+    })
   }
 
   logout()

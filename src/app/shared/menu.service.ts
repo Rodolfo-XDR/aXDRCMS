@@ -21,6 +21,7 @@ export class MenuService {
   */
   private generateMenu() : menuItem[] {
     let menuTabs : menuItem[] = [];
+    let i : number = 0;
 
     this.router.config.forEach(element => {
 
@@ -58,7 +59,7 @@ export class MenuService {
 
         })
         
-        let item : menuItem = { _title: subElement.data.title, _path: parentPath, _children: subItems};
+        let item : menuItem = { _id: subElement.data.id, _title: subElement.data.title, _path: parentPath, _children: subItems};
 
         menuTabs.push(item);
       });
