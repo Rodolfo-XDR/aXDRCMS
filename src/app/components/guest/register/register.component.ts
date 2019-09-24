@@ -8,6 +8,7 @@ import { trigger, transition, useAnimation } from '@angular/animations';
 import { fadeIn, fadeOut, slideInLeft, slideOutDown, bounceOutLeft, bounceInRight } from 'ng-animate';
 import { User } from 'src/app/models/user.model';
 import { Router } from '@angular/router';
+import { globalRoutesNames } from 'src/global.routes.names';
 
 @Component({
   selector: 'app-register',
@@ -105,7 +106,7 @@ export class RegisterComponent extends BaseComponent implements OnInit {
         let tempHabbo : User = new User(localUser.habbo.id, localUser.habbo.username, localUser.habbo.mail, localUser.habbo.rank, localUser.habbo.motto, localUser.habbo.look, localUser.habbo.auth_ticket);
         this.setHabbo(tempHabbo);
   
-        this.router.navigate(['/me']);
+        this.router.navigate([globalRoutesNames.USER.url + globalRoutesNames.USER.children.HABBO.directURL]);
       });
     })
     .catch(res => {

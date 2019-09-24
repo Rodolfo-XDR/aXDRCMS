@@ -5,6 +5,7 @@ import { BaseComponent } from '../../base/base.component';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/user.model';
+import { globalRoutesNames } from 'src/global.routes.names';
 
 @Component({
   selector: 'app-login',
@@ -30,6 +31,8 @@ export class LoginComponent extends BaseComponent implements OnInit {
     identification: null,
     password: null
   };
+
+  private registerLink : string = globalRoutesNames.GUEST.url + globalRoutesNames.GUEST.children.REGISTER.url;
 
   private isError = false;
   private errorMsg = '';
@@ -65,7 +68,7 @@ export class LoginComponent extends BaseComponent implements OnInit {
       let tempHabbo : User = new User(localUser.habbo.id, localUser.habbo.username, localUser.habbo.mail, localUser.habbo.rank, localUser.habbo.motto, localUser.habbo.look, localUser.habbo.auth_ticket);
       this.setHabbo(tempHabbo);
 
-      this.router.navigate(['/me']);
+      this.router.navigate([globalRoutesNames.USER.url + globalRoutesNames.USER.children.HABBO.directURL]);
     }).catch(err => {
       this.errorHandling(err.error.message)
     });

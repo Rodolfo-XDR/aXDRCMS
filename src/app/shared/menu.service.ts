@@ -1,9 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
-import { Route } from '@angular/compiler/src/core';
 import { menuItem } from '../models/menuItem';
-import { globalRoutesNames } from 'src/global.routes.names';
-import { Observable, Subject } from 'rxjs';
 import { AuthService } from './auth.service';
 
 @Injectable({
@@ -11,103 +8,66 @@ import { AuthService } from './auth.service';
 })
 export class MenuService {
 
-  public menuTabs : menuItem[] = [];
-  public subMenuTabs : menuItem[] = [];
-
-  public currentRoute : ActivatedRoute;
-  public currentPageParent : Route;
-  public currentPage : Route;
-  public currentPagePath : string;
-
-  public pageSubject : Subject<any> = new Subject();
-
-  public appSide : string[] = [
-    globalRoutesNames.ME.url, 
-    globalRoutesNames.SETTINGS.url
-  ];
+  private Tabs : menuItem[] = [];
   
   constructor(private router : Router, private activatedRoute : ActivatedRoute, private authService : AuthService)
   {
-    this.authService.verifyUser();
+    this.Tabs = this.generateMenu();
+  }
 
-    this.currentPagePath = (this.activatedRoute.firstChild.firstChild.firstChild.routeConfig.path != '') ? this.activatedRoute.firstChild.firstChild.firstChild.routeConfig.path : this.activatedRoute.firstChild.firstChild.routeConfig.path;
-    this.currentPage = this.activatedRoute.firstChild.firstChild.firstChild.routeConfig;
+  /**
+   * Generate Menu Tabs based on Routes, only if parent Route "isHeader" is set to true. And sorts the tabs based on order id.
+   * @return {menuItem[]} All tabs in an array
+  */
+  private generateMenu() : menuItem[] {
+    let menuTabs : menuItem[] = [];
 
-    this.router.events.subscribe(e => {
-      if(e instanceof NavigationEnd)
-      {
-        if(this.activatedRoute.firstChild.routeConfig.data.title == "Guest" || this.activatedRoute.firstChild.routeConfig.data.title == "Client") return;
+    this.router.config.forEach(element => {
 
-        this.authService.verifyUser();
+      if(element.data == undefined || null || element.data.hasMenuContent == undefined || null || element.children == undefined || null) return;
+ 
+      if(!element.data.hasMenuContent) return;
+     
+      if(element.data.title == 'USER' && !this.authService.isLoggedIn) return;
 
-        this.currentPageParent = this.activatedRoute.firstChild.firstChild.routeConfig;
-        this.currentPagePath = (this.activatedRoute.firstChild.firstChild.firstChild.routeConfig.path != '') ? this.activatedRoute.firstChild.firstChild.firstChild.routeConfig.path : this.activatedRoute.firstChild.firstChild.routeConfig.path;
-        this.currentPage = this.activatedRoute.firstChild.firstChild.firstChild.routeConfig;
-        this.pageSubject.next(this.currentPagePath);
+      let mainPath = '/' + ((element.path != '') ? element.path : element.path);
 
-        /*console.log("%c[aXDR API] Page Information", "color: red");
-        console.log("%cCurrent Page", "font-weight: bold");
-        console.log("URL: " + this.currentPagePath);
-        console.log(this.currentPage);
-        console.log("%cParent Information", "font-weight: bold");
-        console.log(this.currentPageParent);*/
+      element.children.forEach(subElement => {
+        if(subElement.data == undefined || null) return;
+
+        if(subElement.data.onlyGuest != undefined || null)
+        {
+          if(this.authService.isLoggedIn && subElement.data.onlyGuest) return;
+        }
+
+        let parentPath = mainPath + '/' + ((subElement.data.directURL != null || undefined) ? (subElement.path + '/' + subElement.data.directURL) : subElement.path);
         
-      }
-    });
+        let trueParentPath = mainPath + '/' + subElement.path;
 
-    //console.log(this.currentPagePath);
-  }
+        let subItems : menuItem[] = [];
 
-  generateMenus(username : string) : menuItem[] {
-    
-    this.menuTabs = [];
+        subElement.children.forEach(childElement => {
+          
+          if(childElement.data == undefined || null) return;
 
-    //console.info("[aXDR Template System] Generating " + this.activatedRoute.firstChild.routeConfig.children.length + " menu tabs...");
-    
-    this.activatedRoute.children[0].routeConfig.children.forEach((menu) => {
-      let menuPath : string = '/' + ((menu.data.physicalUrl == null || undefined) ? menu.path : menu.data.physicalUrl);
-      
-      let title = menu.data.title == "USERNAME" ? username : menu.data.title ;
-      
-      let item : menuItem = { _title: title, _path: '/' + menuPath};
-      this.menuTabs.push(item);
-    });
+          let childPath = trueParentPath + '/' + ((childElement.data.directURL != null || undefined) ? (childElement.path + '/' + childElement.data.directURL) : childElement.path);
 
-    this.subMenuTabs = this.generatePageSubMenus(this.currentPageParent);
-    this.currentRoute = this.activatedRoute.firstChild.firstChild;
+          let subItem : menuItem = { _title: childElement.data.title, _path: childPath}
 
-    return this.menuTabs;
-  }
+          subItems.push(subItem);
 
-  generateSubMenus() : menuItem[] {
+        })
+        
+        let item : menuItem = { _title: subElement.data.title, _path: parentPath, _children: subItems};
 
-    this.subMenuTabs = this.generatePageSubMenus(this.currentPageParent);
-    this.currentRoute = this.activatedRoute.firstChild.firstChild;
-
-    return this.subMenuTabs;
-  }
-
-  generatePageSubMenus(page) : menuItem[] {
-    let submenuTabs : menuItem[] = [];
-
-    //console.info("[aXDR Template System] Generating " + page.children.length + " submenu tabs for " + page.data.title +  "...");
-  
-    if(page.children != null || undefined)
-    {
-      page.children.forEach((child) => {
-        let childPath : string = '/' + ((child.data.physicalUrl == null || undefined) ? child.path : child.data.physicalUrl);
-        let parentPath : string = '/' + this.activatedRoute.firstChild.firstChild.routeConfig.path;
-
-        let fullPath : string = childPath;
-
-        if(parentPath != '')
-          fullPath = parentPath.concat(childPath);
-
-        let subMenu : menuItem = { _title: child.data.title, _path: fullPath}; 
-        submenuTabs.push(subMenu);
+        menuTabs.push(item);
       });
-    }
+    });
 
-    return submenuTabs;
+    return menuTabs;
+  }
+
+  get getTabs() : menuItem[] {
+    return this.Tabs;
   }
 }

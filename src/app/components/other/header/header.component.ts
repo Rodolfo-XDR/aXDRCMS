@@ -21,7 +21,6 @@ export class HeaderComponent extends BaseComponent implements OnInit, OnDestroy 
 
   private menuTabs : menuItem[];
   private subMenuTabs : menuItem[];
-  private currentRoute;
 
   private _routerSub = Subscription.EMPTY;
 
@@ -30,18 +29,25 @@ export class HeaderComponent extends BaseComponent implements OnInit, OnDestroy 
   }
 
   ngOnInit() {
-
-    //this.currentRoute = this.activatedRoute.firstChild.routeConfig;
-    this.menuTabs = this.menuService.generateMenus(this.getHabbo().username);
-    this.subMenuTabs = this.menuService.generateSubMenus();
+    this.menuTabs = this.menuService.getTabs;
+    this.replaceVariables();
 
     this._routerSub = this.router.events.subscribe(e => {
-      if(e instanceof NavigationEnd)
-      {
-        if(this.currentRoute == this.activatedRoute.firstChild.routeConfig) return;
-        this.subMenuTabs = this.menuService.generateSubMenus();
-        this.currentRoute = this.activatedRoute.firstChild.routeConfig;
+      if(e instanceof NavigationEnd) {
+        console.log(e);
       }
+    })
+  }
+
+  replaceVariables() {
+    this.menuTabs.forEach(tab => {
+      tab._title = tab._title.replace("%USERNAME%", this.getHabbo().username);
+      tab._title = tab._title.replace('%HOTELNAME%', 'Habbo');
+
+      tab._children.forEach(child => {
+        child._title = child._title.replace("%USERNAME%", this.getHabbo().username);
+        child._title = child._title.replace('%HOTELNAME%', 'Habbo');
+      })
     });
   }
 

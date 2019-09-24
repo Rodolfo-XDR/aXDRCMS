@@ -5,6 +5,6 @@ import { MeComponent } from '../components/user/habbo/me/me.component';
 import { SETTINGS_ROUTES } from './settings.routes';
 
 export const HABBO_ROUTES : Routes = [
-    { path: globalRoutesNames.ME.url, component: MeComponent, data: { title: globalRoutesNames.ME.title } },
-    { path: globalRoutesNames.SETTINGS.url, children: SETTINGS_ROUTES, data: { title: globalRoutesNames.SETTINGS.title } }
+    { path: globalRoutesNames.USER.children.HABBO.children.HOME.url, component: MeComponent, data: { title: globalRoutesNames.USER.children.HABBO.children.HOME.title } },
+    { path: globalRoutesNames.USER.children.HABBO.children.SETTINGS.url, children: SETTINGS_ROUTES, data: { title: globalRoutesNames.USER.children.HABBO.children.SETTINGS.title } }
 ];

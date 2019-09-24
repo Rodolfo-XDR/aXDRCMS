@@ -14,34 +14,43 @@ import { AcpComponent } from '../components/user/acp/acp.component';
 import { ClientComponent } from '../components/user/client/client.component';
 
 export const APP_ROUTES: Routes = [
-    {
-        path: globalRoutesNames.DEFAULT.url,
-        component: GuestComponent,
+    { 
+        path: globalRoutesNames.GUEST.url, 
+        component: GuestComponent, 
         children: GUEST_ROUTES, 
-        data: {title: "Guest"},
-        canActivateChild: [UnauthenticatedGuard]
+        data: {
+            hasMenuContent: true,
+            title: globalRoutesNames.GUEST.title
+        }
     },
-    {
-        path: globalRoutesNames.DEFAULT.url,
-        component: UserComponent,
-        children: USER_ROUTES,
-        data: {title: "User"},
-        canActivateChild: [AuthenticatedGuard]
+    { 
+        path: globalRoutesNames.USER.url, 
+        component: UserComponent, 
+        children: USER_ROUTES, 
+        data: { 
+            hasMenuContent: true,
+            title: globalRoutesNames.USER.title 
+        }, 
+        canActivateChild: [AuthenticatedGuard] 
     },
-    {
-        path: 'client',
-        component: ClientComponent,
-        data: { title: "Client" },
-        canActivateChild: [AuthenticatedGuard]
+    { 
+        path: 'client', 
+        component: ClientComponent, 
+        data: { 
+            title: "Client" 
+        }, 
+        canActivateChild: [AuthenticatedGuard] 
     },
     { 
         path: 'acp', 
-        component: AcpComponent,
-        data: {title: 'Admin Control Panel'},
-        canActivateChild: [AuthenticatedGuard]
-    },
-    {
-        path: '**',
-        component: Error404Component
+        component: AcpComponent, 
+        data: { 
+            title: 'Admin Control Panel' 
+        }, 
+        canActivateChild: [AuthenticatedGuard] 
+    }, 
+    { 
+        path: '**', 
+        component: Error404Component 
     }
 ]
