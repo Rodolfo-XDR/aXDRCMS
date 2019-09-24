@@ -52,10 +52,7 @@
         "metro4": "^4.2.43",
         "ng-animate": "^0.3.4",
         "ng-recaptcha": "^4.3.0",
-<<<<<<< HEAD
         "nw-swfobject": "^2.3.1",
-=======
->>>>>>> 9266f973b0957821c6a96341aaf0c69e0df6ae65
         "rxjs": "~6.3.3",
         "tslib": "^1.9.0",
         "zone.js": "~0.8.26"

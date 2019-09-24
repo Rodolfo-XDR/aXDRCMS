@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <div class="row h-100 m-0">
   <div class="cell-4">
       <div class="box">
@@ -21,41 +20,6 @@
               </div>
               <div class="form-group">
                       <input type="checkbox" data-role="checkbox" data-caption="Recordarme" data-cls-caption="fg-lightGrayBlue" data-cls-check="bd-grayBlue">
-=======
-<div class="row guest">
-  <div class="col guest">
-    <div class="row">
-      <div class="col">
-        <img @bounceDown src="../../assets/images/reception_xukys_logo.png" alt="" />
-        <div class="box">
-          <div class="content">
-            <div class="row">
-              <div class="cell-8">
-                <div @fadeIn *ngIf="isError" class="bg-darkRed fg-white rounded text-small text-bold mb-2 p-2">{{errorMsg}}</div>
-                <form  #loginForm="ngForm" (ngSubmit)="login(loginForm)" data-role="validator" action="javascript:" data-interactive-check="true">
-                  <div class="form-group">
-                    <label class="fg-lightGrayBlue text-bold">Usuario</label>
-                    <input class="arctic fg-grayBlue" name="login.identification" #loginForm.identification="ngModel" [(ngModel)]="loginForm.identification" type="text" data-role="input" data-validate="required">
-                    <span class="invalid_feedback">
-                        ¡Oops! Ingresa tu usuario correctamente...
-                    </span>
-                  </div>
-                  <div class="form-group">
-                    <label class="fg-lightGrayBlue text-bold">Contraseña</label>
-                    <input class="arctic fg-grayBlue" name="login.password" #loginForm.password="ngModel" [(ngModel)]="loginForm.password" type="password" data-role="input" data-validate="required">
-                    <span class="invalid_feedback">
-                        ¡Oops! Ingresa tu contraseña correctamente...
-                    </span>
-                  </div>
-                  <div class="form-group">
-                      <input type="checkbox" data-role="checkbox" data-caption="Recordarme" data-cls-caption="fg-lightGrayBlue" data-cls-check="bd-grayBlue">
-                  </div>
-                  <div class="form-group">
-                    <button class="button habbo small" type="submit">Conectarme</button>
-                    <a routerLink="/quickregister" class="fg-white button habbo small blue float-right">¡Registrarme!</a>
-                  </div>
-                </form>
->>>>>>> 9266f973b0957821c6a96341aaf0c69e0df6ae65
               </div>
               <div class="form-group">
                   <button class="button habbo" type="submit">Ingresar</button>
@@ -64,26 +28,10 @@
           </form>
       </div>
   </div>
-<<<<<<< HEAD
   <div @fadeIn class="cell hotel-view">
       <div id="slogan" class="fg-white">
           <h1 class="text-bold">Bienvenido a Habbo,</h1>
           <h4 class="text-bold">Un lugar extraño con gente genial.</h4>
-=======
-  <div class="col guest">
-    <div class="row">
-      <div class="col">
-        <div class="box">
-          <div class="content">
-            <div class="slogan display1 text-bold fg-white text-center">
-                Bienvenid@ a Habbo, <br />
-                <h5>Un lugar extraño con gente genial.</h5>
-                <button routerLink="/quickregister" class="button habbo text-bold">Únete Ahora</button>
-                <button (click)="prueba()" class="button habbo text-bold">Prueba</button>
-            </div>
-          </div>
-        </div>
->>>>>>> 9266f973b0957821c6a96341aaf0c69e0df6ae65
       </div>
   </div>
 </div>

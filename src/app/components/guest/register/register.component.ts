@@ -4,13 +4,10 @@ import { NgForm } from '@angular/forms';
 import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
 import { dialog } from 'metro4'
 import { MetadataOverrider } from '@angular/core/testing/src/metadata_overrider';
-<<<<<<< HEAD
 import { trigger, transition, useAnimation } from '@angular/animations';
 import { fadeIn, fadeOut, slideInLeft, slideOutDown, bounceOutLeft, bounceInRight } from 'ng-animate';
 import { User } from 'src/app/models/user.model';
 import { Router } from '@angular/router';
-=======
->>>>>>> 9266f973b0957821c6a96341aaf0c69e0df6ae65
 
 @Component({
   selector: 'app-register',
@@ -44,11 +41,7 @@ export class RegisterComponent extends BaseComponent implements OnInit {
   private isError = false;
   private errorMsg = '';
 
-<<<<<<< HEAD
   constructor(injector : Injector, private router : Router) {
-=======
-  constructor(injector : Injector) {
->>>>>>> 9266f973b0957821c6a96341aaf0c69e0df6ae65
     super(injector);
 
     this.registrationForm = {
@@ -99,7 +92,6 @@ export class RegisterComponent extends BaseComponent implements OnInit {
     );*/
 
     this.send('post', '/user/add', {username: this.registrationForm.username, mail: this.registrationForm.mail, password: this.registrationForm.password})
-<<<<<<< HEAD
     .then(data => {
       this.logIn(this.registrationForm.username, this.registrationForm.password)
       .then(data => {
@@ -116,9 +108,6 @@ export class RegisterComponent extends BaseComponent implements OnInit {
         this.router.navigate(['/me']);
       });
     })
-=======
-    .then(data => this.resetError())
->>>>>>> 9266f973b0957821c6a96341aaf0c69e0df6ae65
     .catch(res => {
       this.errorHandling(res.error.message)
     });

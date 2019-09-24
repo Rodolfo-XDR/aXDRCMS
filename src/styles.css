@@ -93,7 +93,10 @@ html {
   ::-webkit-scrollbar-corner {
 	background-color: transparent;
   }
-  
+  ul {
+	margin: 0;
+	padding: 0;
+  }
   hr {
 	border-width: 0 0 8px;
     clear: both;
@@ -102,8 +105,6 @@ html {
 	border-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2 1"><circle fill="hsla(0, 0%, 0%, 0.3)" cx="1" cy="0.3" r="0.3"/></svg>') 0 0 100% repeat;
 	border-style: inset;
 	background-color: transparent;
-<<<<<<< HEAD
-=======
 	}
 	.guest-container {
 		width: 100%;
@@ -238,16 +239,72 @@ html {
   .order-4 {
 	-ms-flex-order: 4;
 	order: 4;
->>>>>>> 9266f973b0957821c6a96341aaf0c69e0df6ae65
   }
-
-  span.flashy-arrow {
-    background: url('./assets/images/flashy_arrow.gif') no-repeat;
-    height: 9px;
-    width: 17px;
-    display: inline-block;
+  .order-5 {
+	-ms-flex-order: 5;
+	order: 5;
   }
-
+  .order-6 {
+	-ms-flex-order: 6;
+	order: 6;
+  }
+  .order-7 {
+	-ms-flex-order: 7;
+	order: 7;
+  }
+  .order-8 {
+	-ms-flex-order: 8;
+	order: 8;
+  }
+  .order-9 {
+	-ms-flex-order: 9;
+	order: 9;
+  }
+  .order-10 {
+	-ms-flex-order: 10;
+	order: 10;
+  }
+  .order-11 {
+	-ms-flex-order: 11;
+	order: 11;
+  }
+  .order-12 {
+	-ms-flex-order: 12;
+	order: 12;
+  }
+  .offset-1 {
+	margin-left: 8.33333%;
+  }
+  .offset-2 {
+	margin-left: 16.66667%;
+  }
+  .offset-3 {
+	margin-left: 25%;
+  }
+  .offset-4 {
+	margin-left: 33.33333%;
+  }
+  .offset-5 {
+	margin-left: 41.66667%;
+  }
+  .offset-6 {
+	margin-left: 50%;
+  }
+  .offset-7 {
+	margin-left: 58.33333%;
+  }
+  .offset-8 {
+	margin-left: 66.66667%;
+  }
+  .offset-9 {
+	margin-left: 75%;
+  }
+  .offset-10 {
+	margin-left: 83.33333%;
+  }
+  .offset-11 {
+	margin-left: 91.66667%;
+  }
   .box {
 	border-radius: 3px;
 	padding: 10px;
@@ -300,33 +357,14 @@ html {
   }
 
   .button.habbo.blue {
-<<<<<<< HEAD
-	  background-color: #00608e;
-    border: 2px solid #0499e4;
-  }
-
-  .button.habbo.red {
-    background-color: #bb0539;
-    border: 2px solid #940d24;
-  }
-
-=======
 	background-color: #00608e;
     border: 2px solid #0499e4;
   }
 
->>>>>>> 9266f973b0957821c6a96341aaf0c69e0df6ae65
   .button.habbo:hover {
     background-color: #296d0d;
   }
 
   .button.habbo.blue:hover {
 	background-color: #0777ad;
-<<<<<<< HEAD
-  }
-
-  .button.habbo.red:hover {
-    background-color: #da0b46;
-=======
->>>>>>> 9266f973b0957821c6a96341aaf0c69e0df6ae65
   }

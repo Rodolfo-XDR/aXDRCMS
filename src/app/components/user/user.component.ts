@@ -6,20 +6,13 @@ import { fadeIn, slideOutLeft, slideInLeft } from 'ng-animate';
 import { globalRoutesNames } from 'src/global.routes.names';
 import { BaseComponent } from '../base/base.component';
 import { MenuService } from 'src/app/shared/menu.service';
-<<<<<<< HEAD
 import { Subject } from 'rxjs';
 import { User } from 'src/app/models/user.model';
-=======
->>>>>>> 9266f973b0957821c6a96341aaf0c69e0df6ae65
 
 @Component({
   selector: 'app-user',
   templateUrl: '../../HTMLs/user.html',
-<<<<<<< HEAD
   styleUrls: ['../../../assets/css/user.component.css'],
-=======
-  styleUrls: ['./user.component.css'],
->>>>>>> 9266f973b0957821c6a96341aaf0c69e0df6ae65
   animations: [
     trigger('fadeIn', [
       transition(':enter', useAnimation(fadeIn, { params: { timing: 1 } } ))
@@ -32,7 +25,6 @@ import { User } from 'src/app/models/user.model';
 })
 export class UserComponent extends BaseComponent implements OnInit {
 
-<<<<<<< HEAD
   private appSide : string[] = ['me', 'settings'];
 
   private active : boolean = false;
@@ -48,13 +40,6 @@ export class UserComponent extends BaseComponent implements OnInit {
     
     if(this.active)
       this.currentPage = this.menuService.currentPage;
-=======
-  appSide : string[] = [];
-  currentPage;
-
-  constructor(injector : Injector){
-    super(injector);
->>>>>>> 9266f973b0957821c6a96341aaf0c69e0df6ae65
   }
 
   ngOnInit() {

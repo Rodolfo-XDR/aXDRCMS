@@ -3,16 +3,10 @@ import { PreLoaderService } from '../../shared/pre-loader.service';
 import { aXDRApiService } from 'src/app/shared/axdrapi.service';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from 'src/app/shared/auth.service';
-<<<<<<< HEAD
 import { Route } from '@angular/router';
 import { Subject, Observable, of } from 'rxjs';
 import { User } from 'src/app/models/user.model';
 import { UserService } from 'src/app/shared/user.service';
-=======
-import { menuItem } from 'src/app/models/menuItem';
-import { globalRoutesNames } from 'src/global.routes.names';
-import { MenuService } from 'src/app/shared/menu.service';
->>>>>>> 9266f973b0957821c6a96341aaf0c69e0df6ae65
 
 @Component({
   selector: '',
@@ -23,7 +17,6 @@ import { MenuService } from 'src/app/shared/menu.service';
 
 export class BaseComponent implements OnInit {
 
-<<<<<<< HEAD
   public habbo : User;
 
   private preLoaderService : PreLoaderService;
@@ -32,22 +25,12 @@ export class BaseComponent implements OnInit {
   private userService : UserService;
 
   private test : string;
-=======
-  private preLoaderService : PreLoaderService;
-  private apiService : aXDRApiService;
-  private authService : AuthService;
-  private menuService : MenuService;
->>>>>>> 9266f973b0957821c6a96341aaf0c69e0df6ae65
 
   constructor(private injector : Injector) {
       this.preLoaderService = this.injector.get(PreLoaderService);
       this.apiService = this.injector.get(aXDRApiService);
       this.authService = this.injector.get(AuthService);
-<<<<<<< HEAD
       this.userService = this.injector.get(UserService);
-=======
-      this.menuService = this.injector.get(MenuService);
->>>>>>> 9266f973b0957821c6a96341aaf0c69e0df6ae65
    }
 
   ngOnInit() {
@@ -88,7 +71,6 @@ export class BaseComponent implements OnInit {
     this.preLoaderService.hide();
   }
 
-<<<<<<< HEAD
   public setHabbo(habbo : User)
   {
     this.userService.setHabbo(habbo);
@@ -167,15 +149,5 @@ export class BaseComponent implements OnInit {
     }
       
     return s;
-=======
-  public send(type, url, data)
-  {
-    return this.apiService.send(type, url, data);
-  }
-
-  public changeStatus(status : boolean)
-  {
-    this.authService.changeStatus(status);
->>>>>>> 9266f973b0957821c6a96341aaf0c69e0df6ae65
   }
 }

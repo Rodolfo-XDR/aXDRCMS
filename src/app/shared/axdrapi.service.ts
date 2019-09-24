@@ -1,11 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
-<<<<<<< HEAD
 import { UserService } from './user.service';
 import { User } from '../models/user.model';
-=======
->>>>>>> 9266f973b0957821c6a96341aaf0c69e0df6ae65
 
 @Injectable({
   providedIn: 'root'
@@ -15,11 +12,7 @@ export class aXDRApiService {
 
   readonly URL_API = 'http://localhost:3000/api'
 
-<<<<<<< HEAD
   constructor(private http: HttpClient, private userService : UserService) { }
-=======
-  constructor(private http: HttpClient, private router : Router, private activatedRoute : ActivatedRoute) { }
->>>>>>> 9266f973b0957821c6a96341aaf0c69e0df6ae65
 
   send(type, url, data)
   {
@@ -36,10 +29,6 @@ export class aXDRApiService {
     }
 
     return httpPromise
-<<<<<<< HEAD
-=======
-    
->>>>>>> 9266f973b0957821c6a96341aaf0c69e0df6ae65
     .then(res => {
       if(res == undefined || null) return Promise.reject(res);
 
@@ -54,7 +43,6 @@ export class aXDRApiService {
 
       localStorage.setItem('currentUser', JSON.stringify(res.session));
       
-<<<<<<< HEAD
       let localUser = JSON.parse(localStorage.getItem('currentUser'));
 
       if(localUser == undefined || null) return;
@@ -62,8 +50,6 @@ export class aXDRApiService {
       let tempHabbo : User = new User(localUser.habbo.id, localUser.habbo.username, localUser.habbo.mail, localUser.habbo.rank, localUser.habbo.motto, localUser.habbo.look, localUser.habbo.auth_ticket);
       this.userService.setHabbo(tempHabbo);
       
-=======
->>>>>>> 9266f973b0957821c6a96341aaf0c69e0df6ae65
       return Promise.resolve(res);
     });
   }
