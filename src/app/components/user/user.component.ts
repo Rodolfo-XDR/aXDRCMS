@@ -20,12 +20,13 @@ import { MenuService } from 'src/app/shared/menu.service';
 })
 export class UserComponent extends BaseComponent implements OnInit {
 
+  private clientShowing: boolean = false;
+
   constructor(injector : Injector, private menuService : MenuService){
     super(injector);
-
   }
 
   ngOnInit() {
-
+    this.menuService.isClientShowing.subscribe(i => this.clientShowing = i);
   }
 }

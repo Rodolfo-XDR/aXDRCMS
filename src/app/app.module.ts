@@ -35,6 +35,7 @@ import { HelpComponent } from './components/user/discover/help/help.component';
 import { WhatIsComponent } from './components/user/discover/what-is/what-is.component';
 import { AcpComponent } from './components/user/acp/acp.component';
 import { ClientComponent } from './components/user/client/client.component';
+import { HotelComponent } from './components/user/hotel/hotel.component';
 
 @NgModule({
   imports: [
@@ -71,6 +72,7 @@ import { ClientComponent } from './components/user/client/client.component';
     WhatIsComponent,
     AcpComponent,
     ClientComponent,
+    HotelComponent,
   ],
   providers: [AuthenticatedGuard, UnauthenticatedGuard],
   bootstrap: [AppComponent]

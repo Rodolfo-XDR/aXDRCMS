@@ -29,6 +29,7 @@ export class AuthService {
 
   logOut()
   {
+    console.log("LOGOUT!!!!!!!!!!!!!!!!");
     this.apiService.send('get', '/auth/session/logout', null)
     .then(data => {
       if(localStorage.getItem('currentUser') != undefined || null) localStorage.removeItem('currentUser');
@@ -46,6 +47,7 @@ export class AuthService {
 
   verifyUser()
   {
+    console.log("vERYFYING!");
       if(localStorage.getItem('currentUser') != undefined && localStorage['currentUser'] != 'undefined')
       {
         let localUser = JSON.parse(localStorage.getItem('currentUser'));
@@ -61,8 +63,9 @@ export class AuthService {
 
   ping()
   {
+    console.log("Ping");
     return this.apiService.send('get', '/authentication/session/get', null)
-    .then((res) => { return Promise.resolve(res) } )
+    .then((res) => { console.log("Pong"); return Promise.resolve(res) } )
     .catch((err) => { return Promise.reject(err); } );
   }
 

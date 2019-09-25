@@ -24,8 +24,6 @@ export class BaseComponent implements OnInit {
   private authService : AuthService;
   private userService : UserService;
 
-  private test : string;
-
   constructor(private injector : Injector) {
       this.preLoaderService = this.injector.get(PreLoaderService);
       this.apiService = this.injector.get(aXDRApiService);
@@ -94,6 +92,14 @@ export class BaseComponent implements OnInit {
   public get background()
   {
     return this.userService.getHabboBackground();
+  }
+
+  public get clientShow() {
+    return this.userService.getClientShow();
+  }
+
+  public setClientShow(value) {
+    this.userService.setClientShow(value);
   }
 
   public parseUnixTime(time : number) : string

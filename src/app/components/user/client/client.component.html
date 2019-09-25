@@ -1,13 +1,15 @@
-<div id="client">
-    <h3>Activa tu pinche Flash</h3>
-    <h4 translate-compile>No detecto tu pinche flash mrk</h4>
-    <a id="getFlash" href="http://www.adobe.com/go/getflashplayer" target="_blank">
-        <div class="get-flash"></div>
-    </a>
-</div>
-<div class="client__buttons">
-  <button (click)="goBack()" class="client__close">
-    <i class="client__close__icon icon icon--habbo"></i>
-    <div class="client__close__text">Web</div>
-  </button>
+<div class="client">
+    <div *ngIf="!flashEnabled" class="flash-check-container">
+        <div class="jumbotron flex d-block">
+            <h2>Flash Player</h2>
+            <p>You need to enable flash player before playing Habbo!</p>
+            <div style="height:10px"></div>
+            <a href="https://get.adobe.com/flashplayer/" class="flash-link"></a>
+        </div>
+    </div>
+    <div class="client-buttons">
+        <div class="client-button left-arrow" (click)="goBack()"><i class="heroic-icon h"></i>Web</div>
+        <div class="client-button last-button" (click)="startClient()"><i class="fas fa-sync-alt"></i></div>
+    </div>
+    <div id="client-container" class="client-container" *ngIf="flashEnabled" (window:scroll)="null"></div>
 </div>

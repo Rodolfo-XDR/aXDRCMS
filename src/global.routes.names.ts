@@ -73,6 +73,11 @@ export const globalRoutesNames = {
           },
         }
       },
+      HOTEL: {
+        id: 'HOTEL',
+        url: 'hotel',
+        title: 'Hotel'
+      },
       COMMUNITY: {
         id: 'COMMUNITY',
         url: 'community',

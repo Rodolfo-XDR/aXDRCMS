@@ -7,6 +7,7 @@ import { User } from '../models/user.model';
 export class UserService {
 
   private habbo : User
+  private clientShow : boolean = false;
 
   constructor() {
     //En caso de un F5
@@ -43,5 +44,13 @@ export class UserService {
   getHabbo() : User
   {
     return this.habbo;
+  }
+
+  getClientShow() : boolean {
+    return this.clientShow;
+  }
+
+  setClientShow(value) {
+    this.clientShow = value;
   }
 }

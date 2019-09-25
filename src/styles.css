@@ -183,3 +183,19 @@ html {
   .button.habbo.red:hover {
     background-color: #da0b46;
   }
+
+
+  .client-show {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    color: rgb(255, 255, 255);
+    z-index: 610;
+}
+
+.client-hide {
+    z-index: -1;
+}

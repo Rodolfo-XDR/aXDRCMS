@@ -4,6 +4,7 @@ import { Routes } from '@angular/router';
 import { COMMUNITY_ROUTES } from './community.routes';
 import { HABBO_ROUTES } from './habbo.routes';
 import { DISCOVER_ROUTES } from './discover.routes';
+import { HotelComponent } from '../components/user/hotel/hotel.component';
 
 export const USER_ROUTES : Routes = [
     { 
@@ -14,6 +15,10 @@ export const USER_ROUTES : Routes = [
             title: globalRoutesNames.USER.children.HABBO.title, 
             directURL: globalRoutesNames.USER.children.HABBO.directURL
         } 
+    },
+    {
+        path: globalRoutesNames.USER.children.HOTEL.url,
+        component: HotelComponent
     },
     { 
         path: globalRoutesNames.USER.children.COMMUNITY.url, 

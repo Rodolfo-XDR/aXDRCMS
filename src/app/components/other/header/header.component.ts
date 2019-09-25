@@ -29,6 +29,7 @@ export class HeaderComponent extends BaseComponent implements OnInit, OnDestroy 
   }
 
   ngOnInit() {
+    //TODO deal with '/hotel' section
     this.menuTabs = this.menuService.getTabs;
     this.replaceVariables();
     this.checkCurrentPage();

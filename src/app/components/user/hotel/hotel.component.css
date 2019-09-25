@@ -1,0 +1,12 @@
+.hotel {
+    left: 0;
+    background-color: #000;
+    z-index: 600;
+}
+
+.hotel {
+    height: 100%;
+    top: 0;
+    width: 100%;
+    position: absolute;
+}

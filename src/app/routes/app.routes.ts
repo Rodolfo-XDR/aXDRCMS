@@ -34,14 +34,6 @@ export const APP_ROUTES: Routes = [
         canActivateChild: [AuthenticatedGuard] 
     },
     { 
-        path: 'client', 
-        component: ClientComponent, 
-        data: { 
-            title: "Client" 
-        }, 
-        canActivateChild: [AuthenticatedGuard] 
-    },
-    { 
         path: 'acp', 
         component: AcpComponent, 
         data: { 

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { menuItem } from '../models/menuItem';
 import { AuthService } from './auth.service';
@@ -10,6 +10,8 @@ export class MenuService {
 
   private Tabs : menuItem[] = [];
   
+  private clientShow : EventEmitter<boolean> = new EventEmitter<boolean>();
+
   constructor(private router : Router, private activatedRoute : ActivatedRoute, private authService : AuthService)
   {
     this.Tabs = this.generateMenu();
@@ -70,5 +72,13 @@ export class MenuService {
 
   get getTabs() : menuItem[] {
     return this.Tabs;
+  }
+
+  showClient(value) {
+    this.clientShow.emit(value);
+  }
+
+  get isClientShowing() : EventEmitter<boolean> {
+    return this.clientShow;
   }
 }
