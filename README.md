@@ -16,3 +16,8 @@
 > + Account log out working.
 > #### Alpha:
 > + Menu System Improvement (09-23-2019)
+
+### Pending Errors:
++ Irregular Logouts
++ Refreshing Bugs
++ Client Cache Bugs

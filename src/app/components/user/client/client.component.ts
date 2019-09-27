@@ -58,7 +58,6 @@ export class ClientComponent extends BaseComponent implements OnInit {
     if(swfobject.hasFlashPlayerVersion('10'))
     {
       this.flashEnabled = true;
-      console.log('hola');
       return Promise.resolve();
     }
 
@@ -71,7 +70,6 @@ export class ClientComponent extends BaseComponent implements OnInit {
   {
     if(this.flashEnabled)
     {
-      console.log('hola');
       let oldClient : HTMLElement = document.getElementById('client-area');
 
       if(oldClient != undefined || null)
@@ -80,8 +78,7 @@ export class ClientComponent extends BaseComponent implements OnInit {
       let client : HTMLElement = document.createElement('div');
       client.id = 'client-area';
 
-      document.getElementById('client-container').appendChild(client);
-      console.log('hola');      
+      document.getElementById('client-container').appendChild(client);  
       this.sso = null;
       this.loading = true;
       this.message = 'Getting Ready';
