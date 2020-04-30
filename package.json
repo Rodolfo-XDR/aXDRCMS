@@ -48,7 +48,7 @@
         "express": "^4.17.0",
         "http": "0.0.0",
         "https": "^1.0.0",
-        "jquery": "^3.4.1",
+        "jquery": "^3.5.0",
         "metro4": "^4.2.43",
         "ng-animate": "^0.3.4",
         "ng-recaptcha": "^4.3.0",
